@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}My Orders — ThreadVerse{% endblock %}
+{% block extra_head %}
+<style>
+  @media (max-width: 600px) {
+    .order-card { padding: 1rem !important; }
+    .order-top-row { flex-direction: column !important; align-items: flex-start !important; gap: 0.5rem !important; }
+    .order-item { flex-wrap: wrap; }
+  }
+</style>
+{% endblock %}
+{% block content %}
+<div style="max-width:860px;margin:2.5rem auto;padding:0 1.5rem;">
+  <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2.4rem;font-weight:300;color:#111;margin-bottom:2rem;">My Orders</h1>
+  {% if orders %}
+    {% for o in orders %}
+    <div class="order-card" style="background:#fff;border:1px solid #ebebeb;border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;">
+      <div class="order-top-row" style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
+        <div>
+          <span style="font-size:0.75rem;color:#888;">Order #</span>
+          <strong style="font-size:0.9rem;">{{ o.id }}</strong>
+          <span style="font-size:0.78rem;color:#aaa;margin-left:0.75rem;">{{ o.date }}</span>
+        </div>
+        <span style="padding:0.3rem 0.75rem;border-radius:20px;font-size:0.75rem;font-weight:500;
+          background:{% if o.status|lower=='confirmed' %}#d4edda{% elif o.status|lower=='shipped' %}#d1ecf1{% elif o.status|lower=='delivered' %}#cce5ff{% else %}#f8f9fa{% endif %};
+          color:{% if o.status|lower=='confirmed' %}#155724{% elif o.status|lower=='shipped' %}#0c5460{% elif o.status|lower=='delivered' %}#004085{% else %}#555{% endif %};">
+          {{ o.status }}
+        </span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;">
+        {% for item in o['items'] %}
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <img src="{{ product_img(item.get('image')) }}" style="width:44px;height:44px;object-fit:cover;border-radius:5px;background:#f5f5f5;"/>
+          <div style="flex:1;">
+            <div style="font-size:0.85rem;font-weight:500;">{{ item.name }}</div>
+            {% if item.selected_size %}<div style="font-size:0.75rem;color:#aaa;">{{ item.selected_size }} × {{ item.qty }}</div>{% endif %}
+          </div>
+          <div style="font-size:0.85rem;color:#224292;font-weight:500;">Rs {{ "%.2f"|format(item.price|float * item.qty|int) }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <div style="border-top:1px solid #f0f0f0;margin-top:1rem;padding-top:0.75rem;text-align:right;font-weight:600;color:#224292;">
+        Total: Rs {{ "%.2f"|format(o.total|float) }}
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div style="text-align:center;padding:4rem;color:#888;">
+      <div style="font-size:3rem;margin-bottom:1rem;">📦</div>
+      <h2 style="font-weight:300;color:#333;">No orders yet</h2>
+      <p style="margin:0.5rem 0 1.5rem;">Start shopping to place your first order.</p>
+      <a href="/shop" style="display:inline-block;padding:0.75rem 1.8rem;background:#111;color:#fff;border-radius:6px;text-decoration:none;font-size:0.875rem;">Shop Now</a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

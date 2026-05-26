@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block extra_head %}
+<style>
+  @media (max-width: 768px) {
+    .product-detail-layout { flex-direction: column !important; gap: 1.5rem !important; }
+    .product-detail-gallery { width: 100% !important; }
+    .product-detail-info { width: 100% !important; padding: 0 !important; }
+    .related-products-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.75rem !important; }
+  }
+  @media (max-width: 480px) {
+    .related-products-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>
+{% endblock %}
+{% block title %}{{ product.name }} — ThreadVerse{% endblock %}
+{% block content %}
+<div style="max-width:1100px;margin:2.5rem auto;padding:0 1.5rem;">
+  <a href="/shop" style="font-size:0.8rem;color:#888;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;margin-bottom:1.5rem;">← Back to Shop</a>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+    <!-- Image -->
+    <div style="border-radius:10px;overflow:hidden;background:#f5f5f5;aspect-ratio:3/4;">
+      <img src="{{ product_img(product.get('image')) }}" alt="{{ product.name }}" style="width:100%;height:100%;object-fit:cover;"/>
+    </div>
+    <!-- Details -->
+    <div>
+      <p style="font-size:0.75rem;color:#888;margin-bottom:0.5rem;letter-spacing:0.1em;text-transform:uppercase;">by STYLE STORE</p>
+      <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2.4rem;font-weight:400;color:#111;line-height:1.15;margin-bottom:0.75rem;">{{ product.name }}</h1>
+      {% if product.rating %}
+      <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:1rem;">
+        {% for i in range(5) %}
+          {% if i < product.rating|int %}<span style="color:#fbbf24;font-size:0.9rem;">★</span>{% else %}<span style="color:#ddd;font-size:0.9rem;">★</span>{% endif %}
+        {% endfor %}
+        <span style="font-size:0.8rem;color:#888;">({{ product.rating }})</span>
+      </div>
+      {% endif %}
+      <div style="font-size:2rem;font-weight:500;color:#224292;margin-bottom:1.5rem;">Rs {{ "%.2f"|format(product.price|float) }}</div>
+      {% if product.description %}
+      <p style="color:#555;line-height:1.7;margin-bottom:1.5rem;font-size:0.9rem;">{{ product.description }}</p>
+      {% endif %}
+      <!-- Size selector -->
+      {% if product.sizes %}
+      <div style="margin-bottom:1.5rem;">
+        <label style="font-size:0.8rem;font-weight:500;display:block;margin-bottom:0.6rem;color:#333;">Size</label>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;" id="sizeOptions">
+          {% for sz in product.sizes %}
+          <button type="button" onclick="selectSize(this,'{{ sz }}')" style="padding:0.45rem 0.9rem;border:1.5px solid #ddd;border-radius:5px;background:#fff;cursor:pointer;font-size:0.8rem;transition:all 0.15s;" class="sz-btn">{{ sz }}</button>
+          {% endfor %}
+        </div>
+        <input type="hidden" id="selectedSize" value=""/>
+      </div>
+      {% endif %}
+      <!-- Add to cart -->
+      <div style="display:flex;gap:0.7rem;margin-bottom:1rem;">
+        <select id="cartQty" style="padding:0.6rem;border:1.5px solid #ddd;border-radius:6px;font-size:0.875rem;">
+          {% for i in range(1,6) %}<option value="{{ i }}">{{ i }}</option>{% endfor %}
+        </select>
+        <button onclick="addProductToCart({{ product.id }})" style="flex:1;padding:0.75rem 1.5rem;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.875rem;font-weight:500;">
+          Add to Cart
+        </button>
+      </div>
+      <!-- Wishlist -->
+      <button id="wishlistBtn" onclick="toggleProductWishlist({{ product.id }},this)" style="width:100%;padding:0.65rem;border:1.5px solid #ddd;background:transparent;border-radius:6px;cursor:pointer;font-size:0.875rem;color:#555;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+        ♡ Add to Wishlist
+      </button>
+      <!-- Meta -->
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #f0f0f0;display:flex;flex-direction:column;gap:0.4rem;font-size:0.8rem;color:#888;">
+        {% if product.category %}<span>Category: <strong>{{ product.category|title }}</strong></span>{% endif %}
+        {% if product.color %}<span>Color: <strong>{{ product.color }}</strong></span>{% endif %}
+        {% if product.gender %}<span>For: <strong>{{ product.gender|title }}</strong></span>{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Related -->
+  {% if related %}
+  <div style="margin-top:4rem;">
+    <h2 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:1.8rem;font-weight:300;color:#111;margin-bottom:1.5rem;">You may also like</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem;">
+      {% for r in related %}
+      <a href="/product/{{ r.id }}" style="text-decoration:none;">
+        <div style="background:#fff;border-radius:8px;overflow:hidden;border:1px solid #ebebeb;">
+          <div style="aspect-ratio:3/4;background:#f5f5f5;overflow:hidden;">
+            <img src="{{ product_img(r.get('image')) }}" alt="{{ r.name }}" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
+          </div>
+          <div style="padding:0.8rem;">
+            <div style="font-size:0.85rem;font-weight:500;color:#111;">{{ r.name }}</div>
+            <div style="color:#224292;font-size:0.85rem;">Rs {{ "%.2f"|format(r.price|float) }}</div>
+            <div style="font-size:0.72rem;color:#aaa;margin-top:0.12rem;">by STYLE STORE</div>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+function selectSize(el, sz) {
+  document.querySelectorAll('.sz-btn').forEach(b => { b.style.background='#fff'; b.style.borderColor='#ddd'; b.style.color='#333'; });
+  el.style.background = '#111'; el.style.borderColor = '#111'; el.style.color = '#fff';
+  document.getElementById('selectedSize').value = sz;
+}
+async function addProductToCart(pid) {
+  const size = document.getElementById('selectedSize') ? document.getElementById('selectedSize').value : '';
+  try {
+    const res = await fetch('/api/cart/add', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({id: pid, size: size})
+    });
+    const data = await res.json();
+    if (data.success) {
+      if (typeof updateCartBadge === 'function') updateCartBadge(data.count || 0);
+      if (typeof showCartCloud === 'function') showCartCloud({{ product.name|tojson }}, data.count || 1);
+      else if (typeof showToast === 'function') showToast('Added to cart', 'success');
+    } else if (typeof showToast === 'function') {
+      showToast(data.error || 'Failed to add to cart', 'error');
+    }
+  } catch (e) {
+    if (typeof showToast === 'function') showToast('Failed to add to cart', 'error');
+  }
+}
+async function toggleProductWishlist(pid, btn) {
+  const res = await fetch('/api/wishlist/toggle', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({id: pid})
+  });
+  const data = await res.json();
+  if (data.added) {
+    btn.style.borderColor = '#e11d48'; btn.style.color = '#e11d48';
+    btn.innerHTML = '♥ Saved to Wishlist';
+    if (typeof showToast === 'function') showToast('Added to wishlist', 'success');
+  } else {
+    btn.style.borderColor = '#ddd'; btn.style.color = '#555';
+    btn.innerHTML = '♡ Add to Wishlist';
+    if (typeof showToast === 'function') showToast('Removed from wishlist');
+  }
+}
+</script>
+{% endblock %}

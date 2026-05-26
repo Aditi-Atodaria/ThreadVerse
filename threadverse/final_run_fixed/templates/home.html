@@ -1,0 +1,533 @@
+{% extends "base.html" %}
+{% block title %}ThreadVerse — Fashion for Everyone{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Hero section: navbar starts transparent, becomes dark blue on scroll */
+  nav.tv-nav {
+    background: transparent !important;
+    border-bottom-color: transparent !important;
+    backdrop-filter: none !important;
+    transition: background 0.35s, border-color 0.35s, backdrop-filter 0.35s;
+  }
+  nav.tv-nav.scrolled {
+    background: #0d1b3e !important;
+    border-bottom-color: rgba(255,255,255,0.12) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+  /* White text is already default from base.html dark nav — no override needed */
+</style>
+{% endblock %}
+
+{% block content %}
+{% if request.args.get('welcome') == '1' %}
+<div id="homeWelcomeOverlay" style="position:fixed;inset:0;background:#0d1b3e;z-index:12000;display:flex;align-items:center;justify-content:center;transition:opacity 0.7s ease;">
+  <div style="text-align:center;color:#fff;">
+    <div style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2rem;">ThreadVerse</div>
+    <div style="font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;opacity:0.78;">Home</div>
+  </div>
+</div>
+{% endif %}
+
+<style>
+  @keyframes tvFadeUp      { to { opacity:1; transform:translateY(0); } }
+  @keyframes tvScrollPulse { 0%,100%{opacity:.6;} 50%{opacity:1;} }
+  @keyframes slideIn       { from{opacity:0;transform:scale(1.04);} to{opacity:1;transform:scale(1);} }
+
+  /* ── Slide transitions — cross-fade only ── */
+  .pslide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.75s ease;
+    pointer-events: none;
+  }
+  .pslide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ── Dot pills like the reference ── */
+  .pdot {
+    width: 22px; height: 4px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.35);
+    cursor: pointer;
+    border: none; padding: 0;
+    transition: background 0.3s, width 0.3s;
+  }
+  .pdot.active {
+    background: #fff;
+    width: 36px;
+  }
+
+  /* ── Arrow buttons — sit ON the image ── */
+  .parrow {
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%);
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    z-index: 20;
+    backdrop-filter: blur(6px);
+  }
+  .parrow:hover { background: rgba(255,255,255,0.32); }
+  .parrow.prev  { left: 14px; }
+  .parrow.next  { right: 14px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .hero-split  { flex-direction: column !important; padding: 0 1.5rem !important; gap: 2rem !important; }
+    .hero-left   { max-width: 100% !important; }
+    .hero-right  { width: 100% !important; max-width: 480px !important; margin: 0 auto; }
+  }
+  @media (max-width: 768px) {
+    /* Hero padding fix for mobile nav */
+    #hero-home { padding-top: 64px !important; align-items: flex-start !important; }
+    .hero-split { padding-top: 3rem !important; padding-bottom: 2rem !important; }
+    /* Sections */
+    section[style*="padding:4rem"] { padding: 2.5rem 1rem !important; }
+    /* Grids */
+    [style*="grid-template-columns:repeat(auto-fill,minmax(230px"] { grid-template-columns: repeat(2,1fr) !important; gap: 0.75rem !important; }
+    [style*="grid-template-columns:repeat(auto-fill,minmax(130px"] { grid-template-columns: repeat(3,1fr) !important; }
+  }
+  @media (max-width: 480px) {
+    [style*="grid-template-columns:repeat(auto-fill,minmax(230px"] { grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
+    [style*="grid-template-columns:repeat(auto-fill,minmax(130px"] { grid-template-columns: repeat(2,1fr) !important; }
+    #productCard { height: 360px !important; }
+  }
+</style>
+
+<!-- ══ DIGITAL PETALS HERO ══ -->
+<section id="hero-home" style="position:relative;width:100vw;min-height:calc(100vh + 64px);overflow:hidden;display:flex;align-items:center;margin-top:-64px;">
+
+  <!-- WebGL canvas -->
+  <canvas id="petals-canvas-home" style="position:absolute;inset:0;width:100%;height:100%;display:block;"></canvas>
+
+  <!-- Dark scrim — heavier on left for legibility -->
+  <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(0,0,0,0.68) 0%,rgba(0,0,0,0.30) 52%,rgba(0,0,0,0.08) 100%);pointer-events:none;z-index:1;"></div>
+
+  <!-- ── SPLIT LAYOUT ── -->
+  <div class="hero-split" style="position:relative;z-index:10;width:100%;max-width:1240px;margin:0 auto;padding:0 4rem;display:flex;align-items:center;gap:4rem;">
+
+    <!-- ── LEFT — Title & CTA ── -->
+    <div class="hero-left" style="flex:1;min-width:0;">
+      <p style="font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:1rem;opacity:0;animation:tvFadeUp 0.8s ease 0.1s forwards;">New Season · Digital Petals</p>
+
+      <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(3rem,5.5vw,5.8rem);font-weight:300;line-height:1.05;color:#fff;text-shadow:0 2px 40px rgba(0,0,0,0.6);margin-bottom:1.3rem;opacity:0;animation:tvFadeUp 1s ease 0.3s forwards;">
+        Fashion<br>that <em style="font-style:italic;">blooms</em><br>with you
+      </h1>
+
+      <p style="font-family:'Oswald',sans-serif;font-size:0.98rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:2rem;max-width:390px;opacity:0;animation:tvFadeUp 0.9s ease 0.5s forwards;">
+        Discover independent designers. Curated fashion from creators who care about every stitch and every story.
+      </p>
+
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;opacity:0;animation:tvFadeUp 0.9s ease 0.7s forwards;">
+        <a href="/shop"   style="display:inline-flex;align-items:center;padding:0.78rem 1.9rem;background:#fff;color:#000;font-family:'Oswald',sans-serif;font-size:0.84rem;font-weight:500;border-radius:4px;text-decoration:none;letter-spacing:0.04em;transition:all 0.22s;" onmouseenter="this.style.background='#f0f0f0';this.style.transform='translateY(-2px)'" onmouseleave="this.style.background='#fff';this.style.transform=''">Explore Collection</a>
+        <a href="/stores" style="display:inline-flex;align-items:center;padding:0.78rem 1.9rem;background:transparent;color:#fff;font-family:'Oswald',sans-serif;font-size:0.84rem;border:1.5px solid rgba(255,255,255,0.55);border-radius:4px;text-decoration:none;letter-spacing:0.04em;transition:all 0.22s;" onmouseenter="this.style.background='rgba(255,255,255,0.1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.background='transparent';this.style.transform=''">Browse Stores</a>
+      </div>
+    </div>
+
+    <!-- ── RIGHT — Product Card Slideshow ── -->
+    <div class="hero-right" style="flex:0 0 340px;opacity:0;animation:tvFadeUp 1s ease 0.55s forwards;">
+
+      <!--
+        SINGLE CARD: image fills the whole card,
+        product info overlaid at bottom with dark gradient,
+        arrows on the image, dots at very bottom inside card.
+        Matches the reference screenshot exactly.
+      -->
+      <div id="productCard" style="
+        position: relative;
+        width: 100%;
+        height: 440px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+        cursor: pointer;
+      ">
+
+        <!-- ── SLIDES — full-card image ── -->
+
+        {% for hp in hero_products %}
+        <div class="pslide{% if loop.first %} active{% endif %}" data-idx="{{ loop.index0 }}">
+          <img src="{{ product_img(hp.get('image')) }}"
+               alt="{{ hp.name }}"
+               style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        </div>
+        {% endfor %}
+
+        <!-- ── Bottom gradient overlay — info lives here ── -->
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 45%, transparent 72%);z-index:5;pointer-events:none;"></div>
+
+        <!-- ── Product info overlaid on gradient ── -->
+        <div style="position:absolute;bottom:0;left:0;right:0;z-index:10;padding:1.4rem 1.5rem 1.3rem;">
+
+          <!-- Category label -->
+          <div id="pCat" style="font-family:'Oswald',sans-serif;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.35rem;">{{ hero_products[0].category if hero_products else 'Featured' }}</div>
+
+          <!-- Name + Price row -->
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:0.3rem;">
+            <div id="pName" style="font-family:'DM Serif Display','Playfair Display',serif;font-size:1.55rem;font-weight:400;color:#fff;line-height:1.1;">{{ hero_products[0].name if hero_products else 'ThreadVerse' }}</div>
+            <div id="pPrice" style="font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:600;color:#fff;">Rs {{ "%.2f"|format((hero_products[0].price if hero_products else 0)|float) }}</div>
+          </div>
+
+          <!-- Stars + rating -->
+          <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.5rem;">
+            <span id="pStars" style="color:#fbbf24;font-size:0.82rem;letter-spacing:1px;">★★★★★</span>
+            <span id="pRating" style="font-family:'Oswald',sans-serif;font-size:0.75rem;color:rgba(255,255,255,0.55);">({{ "%.1f"|format((hero_products[0].rating if hero_products else 4.5)|float) }})</span>
+          </div>
+
+          <!-- Description -->
+          <p id="pDesc" style="font-family:'Oswald',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.68);line-height:1.5;margin-bottom:1rem;">{{ hero_products[0].description if hero_products else 'Discover curated fashion from independent designers.' }}</p>
+
+          <!-- Dots + Shop Now row -->
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div id="pDots" style="display:flex;gap:6px;"></div>
+            <a href="/shop" style="font-family:'Oswald',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.85);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:1px;transition:color 0.2s,border-color 0.2s;" onmouseenter="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.8)'" onmouseleave="this.style.color='rgba(255,255,255,0.85)';this.style.borderColor='rgba(255,255,255,0.3)'">Shop Now →</a>
+          </div>
+        </div>
+
+        <!-- ── Arrows ON the image ── -->
+        <button class="parrow prev" id="pPrev" aria-label="Previous">&#8592;</button>
+        <button class="parrow next" id="pNext" aria-label="Next">&#8594;</button>
+
+      </div><!-- /productCard -->
+    </div><!-- /hero-right -->
+
+  </div><!-- /split -->
+
+  <!-- Scroll cue -->
+  <div style="position:absolute;bottom:2rem;left:4rem;z-index:10;display:flex;flex-direction:column;align-items:flex-start;gap:0.35rem;opacity:0;animation:tvFadeUp 0.8s ease 1.4s forwards;color:rgba(255,255,255,0.45);font-family:'Oswald',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;">
+    <div style="width:1px;height:30px;background:linear-gradient(to bottom,rgba(255,255,255,0.45),transparent);animation:tvScrollPulse 2s ease-in-out 2s infinite;"></div>
+    <span>Scroll</span>
+  </div>
+
+</section>
+
+<script>
+{% if request.args.get('welcome') == '1' %}
+  (function () {
+    const splash = document.getElementById('homeWelcomeOverlay');
+    if (!splash) return;
+    setTimeout(() => { splash.style.opacity = '0'; }, 500);
+    setTimeout(() => { splash.remove(); }, 1300);
+  })();
+{% endif %}
+/* ══ WebGL Digital Petals Shader — STILL petals, hover bloom only ══ */
+(function(){
+  const canvas = document.getElementById('petals-canvas-home');
+  const hero   = document.getElementById('hero-home');
+  const gl     = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) { hero.style.background='#0d0015'; canvas.style.display='none'; return; }
+
+  const vs = `attribute vec2 a_pos; void main(){ gl_Position=vec4(a_pos,0.0,1.0); }`;
+
+  /* KEY CHANGE: iTime only drives the bloom pulse + color shimmer —
+     the petal shape angle uses a FIXED value so petals never rotate.
+     Moving the cursor triggers the bloom glow. */
+  const fs = `
+    precision highp float;
+    uniform vec2  iResolution;
+    uniform float iTime;     /* used ONLY for subtle bloom pulse + color shimmer */
+    uniform vec2  iMouse;
+
+    float random(vec2 st){ return fract(sin(dot(st.xy,vec2(12.9898,78.233)))*43758.5453123); }
+
+    void main(){
+      vec2 uv    = (gl_FragCoord.xy - 0.5*iResolution.xy) / iResolution.y;
+      vec2 mouse = (iMouse          - 0.5*iResolution.xy) / iResolution.y;
+
+      
+      vec2 uv_rise = uv; /* static — no upward movement */
+      float r = length(uv_rise);
+      float a = atan(uv_rise.y, uv_rise.x);
+
+      /* Mouse proximity bloom — same as original */
+      float mouseDist = length(uv - mouse);
+      float bloom     = smoothstep(0.4, 0.0, mouseDist);
+
+      /* Petals: fixed count (no sin(t) oscillation), fixed angle (no +t offset) */
+      float petals     = 5.0;
+      float petalShape = sin(a * petals + r * 2.0);   /* r*2 gives radial rings, no time */
+      petalShape       = pow(abs(petalShape), 0.5);
+
+      /* Radial flow: still rings — no time offset on the rings themselves */
+      float flow    = sin(r * 10.0);
+      float pattern = mix(petalShape, flow, 0.5) + bloom * 0.5;
+
+      /* Very subtle time-based color shimmer (not shape change) */
+      float shimmer = 0.0; /* static — no color shimmer */
+
+      vec3 color1         = vec3(0.8, 0.1, 0.5);
+      vec3 color2         = vec3(0.2, 0.4, 0.9);
+      vec3 highlightColor = vec3(1.0);
+
+      vec3 finalColor = mix(color1, color2,
+        smoothstep(0.5, 0.8, r + shimmer)) * pattern;
+
+      /* White specular on petal tips — bloom makes it glow on hover */
+      finalColor += highlightColor * pow(pattern, 10.0) * (1.0 + bloom);
+
+      gl_FragColor = vec4(finalColor, 1.0);
+    }
+  `;
+
+  function mkS(src,type){ const s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); return s; }
+  const prog=gl.createProgram();
+  gl.attachShader(prog,mkS(vs,gl.VERTEX_SHADER));
+  gl.attachShader(prog,mkS(fs,gl.FRAGMENT_SHADER));
+  gl.linkProgram(prog); gl.useProgram(prog);
+
+  const buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  const pos=gl.getAttribLocation(prog,'a_pos');
+  gl.enableVertexAttribArray(pos); gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
+
+  const uR=gl.getUniformLocation(prog,'iResolution');
+  const uT=gl.getUniformLocation(prog,'iTime');
+  const uM=gl.getUniformLocation(prog,'iMouse');
+
+  let mx=window.innerWidth/2, my=window.innerHeight/2;
+  window.addEventListener('mousemove',e=>{ mx=e.clientX; my=hero.clientHeight-e.clientY; },{passive:true});
+
+  function resize(){ const d=Math.min(window.devicePixelRatio||1,2),w=hero.clientWidth*d,h=hero.clientHeight*d; if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h);} }
+  window.addEventListener('resize',resize,{passive:true}); resize();
+
+  const t0=performance.now();
+  (function render(){
+    resize();
+    gl.uniform2f(uR,canvas.width,canvas.height);
+    gl.uniform1f(uT,0.0);
+    gl.uniform2f(uM,mx*(canvas.width/hero.clientWidth),my*(canvas.height/hero.clientHeight));
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+    requestAnimationFrame(render);
+  })();
+})();
+
+/* ══ Nav scroll transparency ══ */
+(function(){
+  const nav=document.querySelector('nav.tv-nav');
+  if(!nav) return;
+  function upd(){ nav.classList.toggle('scrolled',window.scrollY>20); }
+  window.addEventListener('scroll',upd,{passive:true});
+  upd();
+})();
+
+/* ══ Product Slideshow ══ */
+(function(){
+  const PRODUCTS = {{ (hero_products or [])|tojson }};
+
+  const slides  = document.querySelectorAll('.pslide');
+  const pCat    = document.getElementById('pCat');
+  const pName   = document.getElementById('pName');
+  const pPrice  = document.getElementById('pPrice');
+  const pStars  = document.getElementById('pStars');
+  const pRating = document.getElementById('pRating');
+  const pDesc   = document.getElementById('pDesc');
+  const dotsEl  = document.getElementById('pDots');
+  const prevBtn = document.getElementById('pPrev');
+  const nextBtn = document.getElementById('pNext');
+
+  if (!PRODUCTS.length || !slides.length || !pCat || !pName || !pPrice || !pRating || !pDesc || !dotsEl || !prevBtn || !nextBtn) return;
+  let current = 0, autoTimer = null;
+
+  /* Build pill dots */
+  const dots = PRODUCTS.map((_,i) => {
+    const d = document.createElement('button');
+    d.className = 'pdot' + (i===0 ? ' active' : '');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+    dotsEl.appendChild(d);
+    return d;
+  });
+
+  function updateInfo(idx){
+    const p = PRODUCTS[idx];
+    const els = [pCat,pName,pPrice,pStars,pRating,pDesc];
+    els.forEach(el=>{ el.style.transition='opacity 0.25s'; el.style.opacity='0'; });
+    setTimeout(()=>{
+      pCat.textContent    = p.cat;
+      pName.textContent   = p.name;
+      pPrice.textContent  = 'Rs ' + Number(p.price || 0).toFixed(2);
+      pRating.textContent = '(' + Number(p.rating || 4.5).toFixed(1) + ')';
+      pDesc.textContent   = p.description || 'Discover curated fashion from independent designers.';
+      els.forEach(el=>{ el.style.opacity='1'; });
+    }, 250);
+  }
+
+  function goTo(idx){
+    if(idx===current) return;
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = ((idx%PRODUCTS.length)+PRODUCTS.length)%PRODUCTS.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    updateInfo(current);
+  }
+
+  prevBtn.addEventListener('click',()=>{ stopAuto(); goTo((current-1+PRODUCTS.length)%PRODUCTS.length); startAuto(); });
+  nextBtn.addEventListener('click',()=>{ stopAuto(); goTo((current+1)%PRODUCTS.length); startAuto(); });
+
+  function startAuto(){ autoTimer=setInterval(()=>goTo((current+1)%PRODUCTS.length), 4500); }
+  function stopAuto() { clearInterval(autoTimer); }
+  startAuto();
+})();
+</script>
+
+<!-- FEATURED -->
+<section style="padding:4rem 2rem;background:#fff;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#224292;margin-bottom:0.4rem;">Handpicked</p>
+    <h2 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:300;color:#111;margin-bottom:0.5rem;">Featured Pieces</h2>
+    <p style="color:#666;margin-bottom:2rem;">Curated styles from our independent designers.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.5rem;">
+      {% for p in featured %}
+      <a href="/product/{{ p.id }}" style="text-decoration:none;">
+        <div style="background:#fff;border-radius:8px;overflow:hidden;border:1px solid #ebebeb;transition:transform 0.2s,box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.10)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:#f5f5f5;">
+            <img src="{{ product_img(p.get('image')) }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
+          </div>
+          <div style="padding:0.9rem;">
+            <div style="font-size:0.875rem;font-weight:500;color:#111;margin-bottom:0.2rem;">{{ p.name }}</div>
+            <div style="color:#224292;font-size:0.875rem;font-weight:500;">Rs {{ "%.2f"|format(p.price|float) }}</div>
+            <div style="font-size:0.75rem;color:#999;margin-top:0.15rem;">by STYLE STORE</div>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="/shop" style="display:inline-block;padding:0.85rem 2.2rem;background:#111;color:#fff;border-radius:3px;text-decoration:none;font-size:0.875rem;">View All</a>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+{% if categories %}
+<section style="padding:4rem 2rem;background:#f8f8f8;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#224292;margin-bottom:0.4rem;">Browse</p>
+    <h2 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:300;color:#111;margin-bottom:1.5rem;">Shop by Category</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem;">
+      {% for cat in categories %}
+      <a href="/shop?category={{ cat|lower }}" style="display:flex;flex-direction:column;align-items:center;padding:1.2rem 0.5rem;background:#fff;border-radius:8px;text-decoration:none;color:#333;font-size:0.8rem;font-weight:500;gap:0.5rem;border:1px solid #ebebeb;transition:all 0.2s;" onmouseenter="this.style.background='#111';this.style.color='#fff'" onmouseleave="this.style.background='#fff';this.style.color='#333'">
+        {{ cat_icon(cat)|safe }}
+        {{ cat }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- STORES CTA -->
+<section style="padding:4rem 2rem;background:#fff;">
+  <div style="max-width:1200px;margin:0 auto;text-align:center;">
+    <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#224292;margin-bottom:0.4rem;">Creators</p>
+    <h2 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:300;color:#111;margin-bottom:0.75rem;">Discover Independent Stores</h2>
+    <p style="color:#888;max-width:480px;margin:0 auto 2rem;line-height:1.6;">Shop directly from independent designers and creators on our platform.</p>
+    <a href="/stores" style="display:inline-block;padding:0.85rem 2.2rem;background:#111;color:#fff;border-radius:3px;text-decoration:none;font-size:0.875rem;">Browse All Stores</a>
+  </div>
+</section>
+
+<!-- AI CTA -->
+<section style="padding:4rem 2rem;background:#0a0a0a;text-align:center;">
+  <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#7b9ff5;margin-bottom:0.5rem;">AI-powered</p>
+  <h2 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#fff;margin-bottom:0.75rem;">Your AI Fashion Stylist</h2>
+  <p style="color:#888;max-width:480px;margin:0 auto 2rem;line-height:1.6;">Tell us what you need. We'll find the perfect pieces from hundreds of products.</p>
+  <a href="/chat" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2.2rem;background:#fff;color:#000;border-radius:3px;text-decoration:none;font-weight:500;">
+    {{ icon('chat', 18)|safe }} Start Styling
+  </a>
+</section>
+
+<!-- BECOME A VENDOR -->
+<section style="padding:4rem 2rem;background:#0d1b3e;">
+  <div class="vendor-section-grid" style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+
+    <!-- Left: pitch copy -->
+    <div>
+      <p style="font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:0.75rem;">Sell on ThreadVerse</p>
+      <h2 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:300;color:#fff;line-height:1.1;margin-bottom:1rem;">Become a<br><em style="font-style:italic;color:#8aabf0;">Vendor</em></h2>
+      <p style="color:rgba(255,255,255,0.55);line-height:1.7;font-size:0.92rem;margin-bottom:1.5rem;">Join our community of independent designers. List your products, reach thousands of fashion-forward shoppers, and grow your brand on ThreadVerse.</p>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;color:rgba(255,255,255,0.7);font-size:0.85rem;">
+          <span style="color:#8aabf0;font-size:1rem;">✓</span> Free store setup in minutes
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;color:rgba(255,255,255,0.7);font-size:0.85rem;">
+          <span style="color:#8aabf0;font-size:1rem;">✓</span> Manage orders from your dashboard
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;color:rgba(255,255,255,0.7);font-size:0.85rem;">
+          <span style="color:#8aabf0;font-size:1rem;">✓</span> Reach thousands of customers
+        </div>
+      </div>
+      <div style="margin-top:1.75rem;">
+        <a href="/register" style="display:inline-block;padding:0.78rem 1.8rem;background:#fff;color:#0d1b3e;border-radius:4px;font-family:'Oswald',sans-serif;font-size:0.82rem;font-weight:500;text-decoration:none;letter-spacing:0.04em;transition:opacity 0.2s;" onmouseenter="this.style.opacity='0.88'" onmouseleave="this.style.opacity='1'">
+          Create Vendor Account →
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: vendor login form -->
+    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:2rem;">
+      <h3 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:1.4rem;font-weight:300;color:#fff;margin-bottom:0.3rem;">Already a vendor?</h3>
+      <p style="color:rgba(255,255,255,0.45);font-size:0.8rem;margin-bottom:1.5rem;">Sign in to your store dashboard</p>
+
+      <form method="post" action="/login">
+        <!-- We use a direct POST with hidden CSRF — generate it via Jinja form helper -->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <input type="hidden" name="selected_role" value="vendor"/>
+        <input type="hidden" name="next" value="/vendor/dashboard"/>
+
+        <div style="margin-bottom:0.9rem;">
+          <label style="font-size:0.75rem;color:rgba(255,255,255,0.5);display:block;margin-bottom:0.4rem;letter-spacing:0.04em;">Email</label>
+          <input type="email" name="email" required placeholder="vendor@example.com"
+            style="width:100%;padding:0.7rem 1rem;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-size:0.875rem;font-family:inherit;outline:none;transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='rgba(138,171,240,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'"/>
+        </div>
+        <div style="margin-bottom:1.25rem;">
+          <label style="font-size:0.75rem;color:rgba(255,255,255,0.5);display:block;margin-bottom:0.4rem;letter-spacing:0.04em;">Password</label>
+          <input type="password" name="password" required placeholder="Your password"
+            style="width:100%;padding:0.7rem 1rem;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-size:0.875rem;font-family:inherit;outline:none;transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='rgba(138,171,240,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'"/>
+        </div>
+
+        <button type="submit"
+          style="width:100%;padding:0.78rem;background:#224292;color:#fff;border:none;border-radius:8px;font-family:'Oswald',sans-serif;font-size:0.85rem;letter-spacing:0.06em;cursor:pointer;transition:background 0.2s;"
+          onmouseenter="this.style.background='#2e57c2'" onmouseleave="this.style.background='#224292'">
+          Sign In to Dashboard →
+        </button>
+      </form>
+
+      <p style="text-align:center;margin-top:1rem;font-size:0.78rem;color:rgba(255,255,255,0.3);">
+        New here? <a href="/register" style="color:rgba(138,171,240,0.8);text-decoration:none;">Create a vendor account</a>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Mobile stacking -->
+  <style>
+    @media (max-width: 768px) {
+      .vendor-section-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    }
+  </style>
+</section>
+
+<script>
+  // Toggle .scrolled class on nav for hero transparency effect
+  const tvNav = document.querySelector('nav.tv-nav');
+  if (tvNav) {
+    window.addEventListener('scroll', () => {
+      tvNav.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
+  }
+</script>
+{% endblock %}

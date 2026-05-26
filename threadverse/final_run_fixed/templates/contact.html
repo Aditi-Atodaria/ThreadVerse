@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Contact — ThreadVerse{% endblock %}
+{% block content %}
+<div style="max-width:640px;margin:0 auto;padding:4rem 1.5rem;">
+  <p style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:#224292;margin-bottom:0.5rem;">Get in Touch</p>
+  <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#111;margin-bottom:0.75rem;">Contact Us</h1>
+  <p style="color:#888;margin-bottom:2.5rem;">Have a question or feedback? We'd love to hear from you.</p>
+  <form method="post" action="/contact">
+    <div style="margin-bottom:1rem;">
+      <label style="font-size:0.8rem;color:#555;display:block;margin-bottom:0.4rem;">Name</label>
+      <input type="text" name="name" required style="width:100%;padding:0.7rem 1rem;border:1.5px solid #ddd;border-radius:6px;font-size:0.875rem;"/>
+    </div>
+    <div style="margin-bottom:1rem;">
+      <label style="font-size:0.8rem;color:#555;display:block;margin-bottom:0.4rem;">Email</label>
+      <input type="email" name="email" required style="width:100%;padding:0.7rem 1rem;border:1.5px solid #ddd;border-radius:6px;font-size:0.875rem;"/>
+    </div>
+    <div style="margin-bottom:1rem;">
+      <label style="font-size:0.8rem;color:#555;display:block;margin-bottom:0.4rem;">Subject</label>
+      <input type="text" name="subject" style="width:100%;padding:0.7rem 1rem;border:1.5px solid #ddd;border-radius:6px;font-size:0.875rem;"/>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <label style="font-size:0.8rem;color:#555;display:block;margin-bottom:0.4rem;">Message</label>
+      <textarea name="message" rows="5" required style="width:100%;padding:0.7rem 1rem;border:1.5px solid #ddd;border-radius:6px;font-size:0.875rem;resize:vertical;"></textarea>
+    </div>
+    <button type="submit" style="width:100%;padding:0.85rem;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.875rem;font-weight:500;">Send Message</button>
+  </form>
+</div>
+{% endblock %}

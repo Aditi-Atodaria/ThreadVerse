@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}About — ThreadVerse{% endblock %}
+{% block content %}
+<div style="max-width:860px;margin:0 auto;padding:4rem 1.5rem;">
+  <p style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:#224292;margin-bottom:0.5rem;">Our Story</p>
+  <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:300;color:#111;line-height:1.1;margin-bottom:1.5rem;">Fashion that blooms<br><em>with purpose</em></h1>
+  <p style="color:#555;font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem;">ThreadVerse is a marketplace built for independent fashion creators. We believe that the best clothes tell a story, and behind every stitch is a designer who cares deeply about their craft.</p>
+  <p style="color:#555;font-size:1rem;line-height:1.8;margin-bottom:3rem;">Our platform connects shoppers with independent vendors, giving small designers a place to shine alongside discovering unique pieces you won't find anywhere else.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:3rem;">
+    <div style="text-align:center;padding:2rem;background:#f8f8f8;border-radius:10px;">
+      <div style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2.8rem;font-weight:300;color:#224292;">500+</div>
+      <div style="font-size:0.85rem;color:#666;margin-top:0.3rem;">Independent Designers</div>
+    </div>
+    <div style="text-align:center;padding:2rem;background:#f8f8f8;border-radius:10px;">
+      <div style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2.8rem;font-weight:300;color:#224292;">10K+</div>
+      <div style="font-size:0.85rem;color:#666;margin-top:0.3rem;">Unique Products</div>
+    </div>
+    <div style="text-align:center;padding:2rem;background:#f8f8f8;border-radius:10px;">
+      <div style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2.8rem;font-weight:300;color:#224292;">50K+</div>
+      <div style="font-size:0.85rem;color:#666;margin-top:0.3rem;">Happy Customers</div>
+    </div>
+  </div>
+
+  <div style="background:#0a0a0a;border-radius:12px;padding:3rem;text-align:center;color:#fff;">
+    <h2 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2rem;font-weight:300;margin-bottom:0.75rem;">Want to sell on ThreadVerse?</h2>
+    <p style="color:#999;margin-bottom:1.5rem;">Join our community of creators and reach thousands of fashion-forward shoppers.</p>
+    <a href="/login?intent=sell&force=1" style="display:inline-block;padding:0.85rem 2rem;background:#fff;color:#000;border-radius:4px;text-decoration:none;font-weight:500;font-size:0.875rem;">Become a Vendor</a>
+  </div>
+</div>
+{% endblock %}

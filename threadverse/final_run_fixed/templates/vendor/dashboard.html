@@ -1,0 +1,45 @@
+{% extends "vendor/base.html" %}
+{% block title %}Dashboard — {{ user.shop_name|default(user.name) }}{% endblock %}
+{% block vendor_content %}
+<div class="vendor-header">
+  <h1>Welcome, {{ user.name }}!</h1>
+  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;">
+    <a href="/vendor/add-product" class="btn btn-accent">+ Add Product</a>
+  </div>
+</div>
+<div class="stat-cards">
+  <div class="stat-card"><div class="stat-card-label">Your Products</div><div class="stat-card-value">{{ total_products }}</div></div>
+  <div class="stat-card"><div class="stat-card-label">Total Orders</div><div class="stat-card-value">{{ total_orders }}</div></div>
+  <div class="stat-card"><div class="stat-card-label">Revenue</div><div class="stat-card-value">Rs {{ total_revenue|int }}</div></div>
+</div>
+{% if products %}
+<h2 style="font-size:1.5rem;margin-bottom:20px;color:var(--dark)">Your Products</h2>
+<div class="product-grid">
+  {% for p in products[:8] %}
+  <div class="product-card">
+    <div class="product-card-img">
+      <img src="{{ p.image if p.image else 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&auto=format&fit=crop&q=60' }}" alt="{{ p.name }}" loading="lazy"
+           onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&auto=format&fit=crop&q=60'"/>
+    </div>
+    <div class="product-card-body">
+      <div class="product-card-cat">{{ p.category }}</div>
+      <div class="product-card-name">{{ p.name }}</div>
+      <div class="product-card-meta">
+        <div class="product-card-price">Rs {{ p.price|int }}</div>
+        <div class="product-card-rating">Stock: {{ p.stock }}</div>
+      </div>
+      <div class="product-card-vendor">by STYLE STORE</div>
+      <a href="/vendor/edit-product/{{ p.id }}" class="product-card-add" style="text-align:center;display:block">Edit</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+  <div class="empty-icon">📦</div>
+  <h3>No products yet</h3>
+  <p>Start by adding your first product to the marketplace.</p>
+  <a href="/vendor/add-product" class="btn btn-accent">+ Add Product</a>
+</div>
+{% endif %}
+{% endblock %}

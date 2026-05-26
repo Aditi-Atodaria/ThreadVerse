@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block extra_head %}
+<style>
+  @media (max-width: 768px) {
+    .store-product-layout { flex-direction: column !important; }
+    .store-filter-sidebar { width: 100% !important; position: static !important; }
+    .store-products-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 480px) {
+    .store-products-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>
+{% endblock %}
+{% block title %}{{ vendor.shop_name or vendor.name }} — ThreadVerse{% endblock %}
+{% block content %}
+<!-- Store Banner -->
+<div style="height:220px;position:relative;overflow:hidden;background:linear-gradient(135deg,#0d1b3e,#224292,#1a3066);">
+  <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:1.5rem 2rem;">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.2);border:3px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display','Playfair Display',serif;font-size:2rem;color:#fff;">{{ (vendor.shop_name or vendor.name)[0] }}</div>
+      <div>
+        <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2rem;font-weight:400;color:#fff;margin-bottom:0.2rem;">{{ vendor.shop_name or vendor.name }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:1100px;margin:2rem auto;padding:0 1.5rem;">
+  <!-- Filters -->
+  <form method="get" style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem;align-items:center;">
+    <input type="text" name="q" value="{{ filters.get('q','') }}" placeholder="Search this store..." style="flex:1;min-width:180px;padding:0.55rem 0.9rem;border:1px solid #ddd;border-radius:6px;font-size:0.8rem;"/>
+    <select name="category" style="padding:0.55rem;border:1px solid #ddd;border-radius:6px;font-size:0.8rem;">
+      <option value="">All categories</option>
+      {% for cat in categories %}
+      <option value="{{ cat|lower }}" {% if filters.get('category','').lower() == cat.lower() %}selected{% endif %}>{{ cat }}</option>
+      {% endfor %}
+    </select>
+    <select name="sort" style="padding:0.55rem;border:1px solid #ddd;border-radius:6px;font-size:0.8rem;">
+      <option value="">Sort</option>
+      <option value="price_asc" {% if filters.get('sort')=='price_asc' %}selected{% endif %}>Price ↑</option>
+      <option value="price_desc" {% if filters.get('sort')=='price_desc' %}selected{% endif %}>Price ↓</option>
+      <option value="rating" {% if filters.get('sort')=='rating' %}selected{% endif %}>Top rated</option>
+    </select>
+    <button type="submit" style="padding:0.55rem 1.2rem;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.8rem;">Filter</button>
+    <span style="font-size:0.8rem;color:#888;">{{ total }} products</span>
+  </form>
+
+  {% if products %}
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.25rem;">
+    {% for p in products %}
+    <a href="/product/{{ p.id }}" style="text-decoration:none;">
+      <div style="background:#fff;border-radius:8px;overflow:hidden;border:1px solid #ebebeb;transition:transform 0.2s,box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 28px rgba(0,0,0,0.09)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+        <div style="aspect-ratio:3/4;overflow:hidden;background:#f5f5f5;">
+          <img src="{{ product_img(p.get('image')) }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
+        </div>
+        <div style="padding:0.8rem;">
+          <div style="font-size:0.85rem;font-weight:500;color:#111;">{{ p.name }}</div>
+          <div style="color:#224292;font-size:0.85rem;">Rs {{ "%.2f"|format(p.price|float) }}</div>
+          <div style="font-size:0.72rem;color:#aaa;margin-top:0.12rem;">by STYLE HOUSE</div>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="text-align:center;padding:3rem;color:#888;">No products found.</div>
+  {% endif %}
+</div>
+{% endblock %}

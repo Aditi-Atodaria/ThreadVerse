@@ -1,0 +1,27 @@
+{% extends "vendor/base.html" %}
+{% block title %}Orders — ThreadVerse Vendor{% endblock %}
+{% block vendor_content %}
+<div class="vendor-header"><h1>Orders ({{ orders|length }})</h1></div>
+{% if orders %}
+<div style="display:flex;flex-direction:column;gap:16px">
+  {% for order in orders %}
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+      <div><span style="font-weight:700;color:var(--dark)">Order #{{ order.id }}</span><span style="color:var(--muted);font-size:0.85rem;margin-left:12px">{{ order.date }}</span></div>
+      <div>
+        <span style="padding:4px 12px;border-radius:40px;font-size:0.75rem;font-weight:600;
+          background:{% if order.status|lower=='confirmed' %}#d4edda{% else %}var(--accent-light){% endif %};
+          color:{% if order.status|lower=='confirmed' %}#155724{% else %}var(--accent-dark){% endif %};">
+          {{ order.status }}
+        </span>
+        <span style="font-weight:700;margin-left:12px">Rs {{ "%.2f"|format(order.total) }}</span>
+      </div>
+    </div>
+    <div style="font-size:0.85rem;color:var(--muted)">{{ order['items']|length }} item(s): {{ order['items']|map(attribute='name')|join(', ') }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty-state"><div class="empty-icon">📋</div><h3>No orders yet</h3><p>Orders will appear here once customers start purchasing.</p></div>
+{% endif %}
+{% endblock %}

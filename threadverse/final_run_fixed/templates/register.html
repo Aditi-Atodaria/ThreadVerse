@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block extra_head %}
+<style>
+  .reg-wrapper {
+    min-height: calc(100vh - 64px);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 2.5rem 1rem 3rem;
+    background: #f8f8f8;
+  }
+  .reg-box {
+    width: 100%; max-width: 500px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+  }
+  .field-group { margin-bottom: 1rem; }
+  .field-label {
+    font-size: 0.8rem; color: #555;
+    display: block; margin-bottom: 0.4rem; font-weight: 500;
+  }
+  .field-label .req { color: #e53935; margin-left: 2px; }
+  .form-input {
+    width: 100%; padding: 0.72rem 1rem;
+    border: 1.5px solid #ddd; border-radius: 8px;
+    font-size: 0.875rem; font-family: inherit;
+    transition: border-color 0.2s; box-sizing: border-box;
+  }
+  .form-input:focus { outline: none; border-color: #224292; }
+  .otp-row { display: flex; gap: 0.5rem; align-items: flex-end; }
+  .otp-row .form-input { flex: 1; }
+  .btn-send-otp {
+    white-space: nowrap; padding: 0.72rem 1rem;
+    background: #224292; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.8rem; font-weight: 500;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .btn-send-otp:hover { background: #1a3378; }
+  .btn-send-otp:disabled { background: #9aa6c0; cursor: not-allowed; }
+  .otp-status {
+    font-size: 0.78rem; margin-top: 0.4rem;
+    padding: 0.5rem 0.75rem; border-radius: 6px; display: none;
+  }
+  .otp-status.success { background: #e8f5e9; color: #2e7d32; display: block; }
+  .otp-status.error   { background: #fdecea; color: #c62828; display: block; }
+  .file-upload-area {
+    border: 2px dashed #ddd; border-radius: 8px;
+    padding: 1.2rem 1rem; text-align: center; cursor: pointer;
+    transition: border-color 0.2s; font-size: 0.82rem; color: #888;
+    position: relative;
+  }
+  .file-upload-area:hover { border-color: #224292; color: #224292; }
+  .file-upload-area input[type=file] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+  }
+  .file-name { font-size: 0.78rem; color: #224292; margin-top: 0.4rem; }
+  #vendorFields { display: none; }
+  .btn-submit {
+    width: 100%; padding: 0.88rem;
+    background: #111; color: #fff;
+    border: none; border-radius: 8px;
+    cursor: pointer; font-size: 0.9rem; font-weight: 500;
+    transition: background 0.2s; margin-top: 0.5rem;
+  }
+  .btn-submit:hover { background: #224292; }
+  .err-banner {
+    background: #fdecea; color: #c62828;
+    padding: 0.75rem 1rem; border-radius: 8px;
+    margin-bottom: 1rem; font-size: 0.85rem;
+  }
+  .sec-divider {
+    font-size: 0.75rem; font-weight: 600; color: #aaa;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin: 1.5rem 0 0.8rem; padding-bottom: 0.4rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  @media (max-width: 600px) {
+    .reg-box { padding: 2rem 1.25rem; border-radius: 10px; }
+  }
+</style>
+{% endblock %}
+{% block title %}Create Account — ThreadVerse{% endblock %}
+{% block content %}
+<div class="reg-wrapper">
+  <div class="reg-box">
+    <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2.4rem;font-weight:300;color:#111;text-align:center;margin-bottom:0.4rem;">Create Account</h1>
+    <p style="text-align:center;color:#888;font-size:0.875rem;margin-bottom:2rem;">Join the ThreadVerse community</p>
+
+    {% if error %}<div class="err-banner">{{ error }}</div>{% endif %}
+
+    <form method="post" action="/register" enctype="multipart/form-data" id="registerForm">
+      {{ form.hidden_tag() }}
+
+      <div class="sec-divider">Account Details</div>
+
+      <div class="field-group">
+        {{ form.name.label(class="field-label") }}
+        {{ form.name(class="form-input", placeholder="Your full name", required=True) }}
+        {% if form.name.errors %}
+          {% for err in form.name.errors %}<p style="color:#c0392b;font-size:0.8rem;margin-top:0.25rem;">{{ err }}</p>{% endfor %}
+        {% endif %}
+      </div>
+      <div class="field-group">
+        {{ form.email.label(class="field-label") }}
+        {{ form.email(class="form-input", placeholder="you@example.com", required=True) }}
+        {% if form.email.errors %}
+          {% for err in form.email.errors %}<p style="color:#c0392b;font-size:0.8rem;margin-top:0.25rem;">{{ err }}</p>{% endfor %}
+        {% endif %}
+      </div>
+      <div class="field-group">
+        <label class="field-label">Password <span class="req">*</span> <span style="font-weight:400;color:#aaa;">(min 6 chars)</span></label>
+        {{ form.password(class="form-input", placeholder="Choose a password", required=True) }}
+        {% if form.password.errors %}
+          {% for err in form.password.errors %}<p style="color:#c0392b;font-size:0.8rem;margin-top:0.25rem;">{{ err }}</p>{% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="sec-divider">Phone Verification</div>
+
+      <div class="field-group">
+        {{ form.contact_number.label(class="field-label") }}
+        {{ form.contact_number(id="contactNumber", class="form-input", placeholder="+91 98765 43210", required=True) }}
+        {% if form.contact_number.errors %}
+          {% for err in form.contact_number.errors %}<p style="color:#c0392b;font-size:0.8rem;margin-top:0.25rem;">{{ err }}</p>{% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="sec-divider">Account Type</div>
+
+      <div class="field-group">
+        <label class="field-label">I want to</label>
+        {{ form.role(id="roleSelect", class="form-input", onchange="toggleRole(this.value)") }}
+        {% if form.role.errors %}
+          {% for err in form.role.errors %}<p style="color:#c0392b;font-size:0.8rem;margin-top:0.25rem;">{{ err }}</p>{% endfor %}
+        {% endif %}
+      </div>
+
+      <div id="vendorFields">
+        <div class="field-group">
+          {{ form.shop_name.label(class="field-label") }}
+          {{ form.shop_name(class="form-input", placeholder="Your shop / brand name") }}
+        </div>
+
+        <div id="docSection" class="field-group">
+          <label class="field-label">
+            Verification Document
+            <span style="font-weight:400;color:#aaa;">(optional)</span>
+          </label>
+          <div class="file-upload-area" id="docDropArea">
+            📎 &nbsp;Click to upload — PDF, JPG, or PNG (max 10 MB)
+            {{ form.verification_doc(id="verificationDoc", accept=".pdf,.jpg,.jpeg,.png", onchange="showFileName(this)") }}
+          </div>
+          <div class="file-name" id="docFileName"></div>
+          <div style="font-size:0.75rem;color:#aaa;margin-top:0.4rem;">
+            Acceptable: Government ID, Aadhaar, PAN, Passport, or any official photo ID.
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">Create Account →</button>
+    </form>
+
+    <p style="text-align:center;margin-top:1.5rem;font-size:0.875rem;color:#888;">
+      Already have an account? <a href="/login" style="color:#224292;font-weight:500;">Sign in</a>
+    </p>
+  </div>
+</div>
+
+<script>
+  function toggleRole(v) {
+    document.getElementById('vendorFields').style.display = v === 'vendor' ? 'block' : 'none';
+  }
+  toggleRole(document.getElementById('roleSelect').value);
+
+  function showFileName(input) {
+    document.getElementById('docFileName').textContent =
+      input.files.length ? '✓ ' + input.files[0].name : '';
+  }
+</script>
+{% endblock %}

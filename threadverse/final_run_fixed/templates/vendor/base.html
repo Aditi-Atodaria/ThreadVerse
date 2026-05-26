@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Vendor — ThreadVerse{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+  <style>
+  .vendor-layout { display: flex; min-height: 100vh; }
+  .vendor-sidebar {
+    width: 240px; background: var(--black); color: white;
+    padding: 24px 16px; display: flex; flex-direction: column;
+    flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  }
+  .vendor-sidebar .brand {
+    font-family: var(--font-display); font-size: 1.55rem; font-weight: 400;
+    letter-spacing: 0.02em; margin-bottom: 2rem; padding: 0 8px; color: white;
+    text-decoration: none; display: block;
+  }
+  .vendor-sidebar .brand span { color: var(--accent); }
+  .vendor-sidebar-label {
+    font-family: var(--font-ui); font-size: 0.65rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); padding: 0 14px; margin-bottom: 6px;
+  }
+  .vendor-nav a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border-radius: var(--radius);
+    color: rgba(255,255,255,0.6); font-family: var(--font-ui);
+    font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
+    transition: var(--transition); margin-bottom: 3px; text-decoration: none;
+  }
+  .vendor-nav a:hover, .vendor-nav a.active {
+    background: rgba(255,255,255,0.08); color: white;
+  }
+  .vendor-nav .nav-icon { font-size: 1rem; width: 22px; text-align: center; }
+  .vendor-main { flex: 1; padding: 2.5rem 2.5rem; background: var(--bg); }
+
+  /* Vendor mobile responsive */
+  .vendor-top-bar {
+    display: none; background: var(--black);
+    padding: 0 1rem; height: 56px;
+    align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .vendor-top-bar .brand {
+    font-family: var(--font-display); font-size: 1.3rem;
+    color: #fff; text-decoration: none; font-weight: 400;
+  }
+  .vendor-ham {
+    background: none; border: none; cursor: pointer;
+    color: #fff; display: flex; flex-direction: column;
+    gap: 5px; padding: 6px;
+  }
+  .vendor-ham span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+  @media (max-width: 900px) {
+    .vendor-top-bar { display: flex !important; }
+    .vendor-sidebar {
+      position: fixed; top: 56px; left: 0; bottom: 0;
+      z-index: 200; transform: translateX(-100%);
+      transition: transform 0.3s ease; width: 240px;
+    }
+    .vendor-sidebar.open { transform: translateX(0); }
+    .vendor-main { padding: 1.5rem 1rem; }
+    .vendor-layout { min-height: calc(100vh - 56px); }
+  }
+  @media (max-width: 600px) {
+    .stat-cards { grid-template-columns: 1fr 1fr; }
+    .product-grid { grid-template-columns: 1fr 1fr; }
+    .vendor-header { flex-direction: column; align-items: flex-start; }
+    .vendor-header h1 { font-size: 1.5rem; }
+  }
+  .vendor-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 2rem; flex-wrap: wrap; gap: 12px;
+    padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
+  }
+  .vendor-header h1 {
+    font-family: var(--font-heading); font-size: 2rem; color: var(--dark); font-weight: 600;
+  }
+  .stat-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-bottom: 2rem; }
+  .stat-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px;
+  }
+  .stat-card-label {
+    font-family: var(--font-ui); font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .stat-card-value {
+    font-family: var(--font-display); font-size: 2rem;
+    font-weight: 400; color: var(--dark);
+  }
+  .switch-mode-btn {
+    display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+    border-radius: var(--radius);
+    background: rgba(34,66,146,0.15); color: rgba(255,255,255,0.85);
+    font-family: var(--font-ui); font-size: 0.78rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 4px; border: 1px solid rgba(34,66,146,0.35);
+    cursor: pointer; text-decoration: none; transition: var(--transition);
+  }
+  .switch-mode-btn:hover { background: rgba(34,66,146,0.3); color: white; }
+  @media (max-width: 768px) {
+    .vendor-sidebar { display: none; }
+    .vendor-main { padding: 20px 16px; }
+  }
+  </style>
+  {% block vendor_css %}{% endblock %}
+</head>
+<body>
+<!-- Vendor mobile top bar -->
+<div class="vendor-top-bar" id="vendorTopBar">
+  <a href="/vendor" class="brand">ThreadVerse</a>
+  <button class="vendor-ham" onclick="document.getElementById('vendorSidebar').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+<div class="vendor-layout">
+  <aside class="vendor-sidebar" id="vendorSidebar">
+    <a href="/" class="brand">Thread<span>Verse</span></a>
+    <div class="vendor-sidebar-label">Vendor Panel</div>
+    <nav class="vendor-nav">
+      <a href="/vendor" class="{{ 'active' if request.path == '/vendor' }}"><span class="nav-icon">&#128202;</span> Dashboard</a>
+      <a href="/vendor/products" class="{{ 'active' if '/products' in request.path }}"><span class="nav-icon">&#128230;</span> Products</a>
+      <a href="/vendor/add-product" class="{{ 'active' if '/add-product' in request.path }}"><span class="nav-icon">&#43;</span> Add Product</a>
+      <a href="/vendor/orders" class="{{ 'active' if '/orders' in request.path }}"><span class="nav-icon">&#128203;</span> Orders</a>
+      <a href="/vendor/profile" class="{{ 'active' if '/profile' in request.path }}"><span class="nav-icon">&#128100;</span> Profile</a>
+      <div style="flex:1;min-height:24px"></div>
+      <a href="/switch-mode" class="switch-mode-btn"><span class="nav-icon">&#128717;</span> Switch to Shop</a>
+      <a href="/logout" style="color:rgba(255,255,255,0.35);margin-top:4px"><span class="nav-icon">&#128682;</span> Sign Out</a>
+    </nav>
+  </aside>
+  <main class="vendor-main">
+    <div id="toast-container"></div>
+    {% block vendor_content %}{% endblock %}
+  </main>
+</div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block vendor_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,127 @@
+/* ═══════════════════════════════════════════════════════
+   ThreadVerse — Custom Font Stack
+   Playfair Display  → headings / display (elegant serif)
+   DM Serif Display  → hero titles / large accent text
+   Lora              → body / readable text
+   Oswald            → UI labels / nav / caps / prices
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Playfair Display (upright, variable) ── */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/static/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Playfair Display (italic) ── */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/static/fonts/PlayfairDisplay-Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── DM Serif Display (upright) ── */
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/static/fonts/DMSerifDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── DM Serif Display (italic) ── */
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/static/fonts/DMSerifDisplay-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Lora (upright, variable) ── */
+@font-face {
+  font-family: 'Lora';
+  src: url('/static/fonts/Lora-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Lora (italic, variable) ── */
+@font-face {
+  font-family: 'Lora';
+  src: url('/static/fonts/Lora-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Oswald (variable) ── */
+@font-face {
+  font-family: 'Oswald';
+  src: url('/static/fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Global CSS variables — font roles
+   ═══════════════════════════════════════════════════════ */
+:root {
+  --font-display:  'DM Serif Display', 'Playfair Display', Georgia, serif;
+  --font-heading:  'Playfair Display', Georgia, serif;
+  --font-body:     'Lora', Georgia, serif;
+  --font-ui:       'Oswald', sans-serif;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Base typography resets
+   ═══════════════════════════════════════════════════════ */
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+/* Nav brand uses DM Serif Display */
+.nav-brand {
+  font-family: var(--font-display) !important;
+}
+
+/* Nav links use Oswald */
+.nav-links a,
+.hero-nav-links a {
+  font-family: var(--font-ui) !important;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+/* Buttons / UI elements use Oswald */
+.btn,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-ui);
+}
+
+/* Prices, labels, caps → Oswald */
+.price, .label, .tag, .badge,
+.section-label, .eyebrow {
+  font-family: var(--font-ui);
+  letter-spacing: 0.12em;
+}

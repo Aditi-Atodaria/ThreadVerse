@@ -1,0 +1,18 @@
+{% extends "vendor/base.html" %}
+{% block title %}Profile — ThreadVerse Vendor{% endblock %}
+{% block vendor_content %}
+<div class="vendor-header"><h1>My Profile</h1></div>
+{% if error %}
+<div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius);padding:12px 16px;color:var(--danger);font-size:0.88rem;margin-bottom:20px">{{ error }}</div>
+{% endif %}
+{% if success %}
+<div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius);padding:12px 16px;color:var(--success);font-size:0.88rem;margin-bottom:20px">{{ success }}</div>
+{% endif %}
+<form method="POST" style="max-width:500px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:32px">
+  <div class="form-group"><label class="form-label">Name</label><input class="form-control" name="name" value="{{ user.name }}"/></div>
+  <div class="form-group"><label class="form-label">Shop Name</label><input class="form-control" name="shop_name" value="{{ user.shop_name|default('') }}"/></div>
+  <div class="form-group"><label class="form-label">Email</label><input class="form-control" value="{{ user.email }}" disabled style="opacity:0.6"/></div>
+  <div class="form-group"><label class="form-label">New Password (optional)</label><input class="form-control" name="new_password" type="password" placeholder="Leave blank to keep current"/></div>
+  <button type="submit" class="btn btn-accent btn-full btn-lg">Save Profile</button>
+</form>
+{% endblock %}

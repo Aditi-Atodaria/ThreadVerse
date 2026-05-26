@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/static/css/fonts.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ThreadVerse — Digital Petals</title>
+  
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #ffffff;
+      --black: #000000;
+      --accent: #224292;
+      --accent-dark: #1a3066;
+      --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+      --font-body: 'Lora', Georgia, serif;
+    }
+    html, body { width: 100%; height: 100%; overflow-x: hidden; }
+    body { font-family: var(--font-body); background: #000; color: #fff; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #petals-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.32) 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 2rem;
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.9s ease 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: #fff;
+      text-shadow: 0 2px 40px rgba(0,0,0,0.35);
+      opacity: 0;
+      transform: translateY(22px);
+      animation: fadeUp 1.0s ease 0.45s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+      margin-top: 1.4rem;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.9s ease 0.7s forwards;
+    }
+
+    .hero-actions {
+      margin-top: 2.2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.9s ease 0.95s forwards;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 2.2rem;
+      background: #fff;
+      color: #000;
+      font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+      border: none; border-radius: 3px; cursor: pointer; text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.22s, color 0.22s, transform 0.18s;
+    }
+    .btn-hero-primary:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+
+    .btn-hero-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 2.2rem;
+      background: transparent;
+      color: #fff;
+      font-family: var(--font-body); font-size: 0.875rem; font-weight: 400;
+      border: 1.5px solid rgba(255,255,255,0.65); border-radius: 3px; cursor: pointer; text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: border-color 0.22s, background 0.22s, transform 0.18s;
+    }
+    .btn-hero-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+    /* scroll cue */
+    .scroll-cue {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      opacity: 0; animation: fadeUp 0.8s ease 1.6s forwards;
+      color: rgba(255,255,255,0.55); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(255,255,255,0.55), transparent);
+      animation: scrollPulse 2s ease-in-out infinite 2s;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.55; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.15); }
+    }
+
+    /* NAV overlay for hero */
+    .hero-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 68px;
+      background: transparent;
+      transition: background 0.35s, backdrop-filter 0.35s;
+    }
+    .hero-nav.scrolled {
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(14px);
+    }
+    .hero-nav-brand {
+      font-family: var(--font-display); font-size: 1.55rem; font-weight: 400;
+      color: #fff; text-decoration: none; letter-spacing: 0.06em;
+    }
+    .hero-nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .hero-nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .hero-nav-links a:hover { color: #fff; }
+    .hero-nav-actions { display: flex; gap: 1rem; align-items: center; }
+    .hero-nav-icon { color: rgba(255,255,255,0.82); text-decoration: none; display: flex; transition: color 0.2s; position: relative; }
+    .hero-nav-icon:hover { color: #fff; }
+    .hero-nav-cart-badge {
+      position: absolute; top: -5px; right: -7px;
+      background: var(--accent); color: white; font-size: 0.58rem;
+      border-radius: 50%; width: 15px; height: 15px;
+      display: flex; align-items: center; justify-content: center; font-weight: 700;
+    }
+    .hero-nav-btn {
+      padding: 0.45rem 1.1rem; border: 1.5px solid rgba(255,255,255,0.65);
+      color: #fff; text-decoration: none; font-size: 0.78rem;
+      border-radius: 3px; transition: all 0.2s; letter-spacing: 0.05em;
+    }
+    .hero-nav-btn:hover { background: #fff; color: #000; }
+
+    @media (max-width: 768px) {
+      .hero-nav-links { display: none; }
+      .hero-nav { padding: 0 1.2rem; }
+    }
+
+    /* ── SECTIONS BELOW HERO ── */
+    section.section { padding: 5rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* Featured */
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300; line-height: 1.1; color: #111; margin-bottom: 0.75rem;
+    }
+    .section-sub { color: #666; font-size: 0.95rem; max-width: 500px; line-height: 1.6; margin-bottom: 2.5rem; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: #fff; border-radius: 8px; overflow: hidden;
+      border: 1px solid #ebebeb; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+    .product-card-img { position: relative; aspect-ratio: 3/4; overflow: hidden; background: #f5f5f5; }
+    .product-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .product-card:hover .product-card-img img { transform: scale(1.04); }
+    .product-card-body { padding: 1rem; }
+    .product-card-name { font-size: 0.875rem; font-weight: 500; margin-bottom: 0.2rem; color: #111; }
+    .product-card-price { color: var(--accent); font-size: 0.875rem; font-weight: 500; }
+    .product-card-vendor { font-size: 0.75rem; color: #999; margin-top: 0.15rem; }
+
+    /* Categories */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .category-chip {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 1.2rem 0.5rem; background: #f8f8f8; border-radius: 8px;
+      text-decoration: none; color: #333; transition: all 0.2s;
+      font-size: 0.8rem; font-weight: 500; gap: 0.5rem;
+    }
+    .category-chip:hover { background: var(--black); color: white; }
+
+    .bg-dark { background: #0a0a0a; color: white; }
+    .bg-dark .section-title { color: white; }
+    .bg-dark .section-sub { color: #999; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="hero-nav" id="heroNav">
+  <a href="/" class="hero-nav-brand">ThreadVerse</a>
+  <ul class="hero-nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/shop">Shop</a></li>
+    <li><a href="/stores">Stores</a></li>
+    <li><a href="/chat">AI Stylist</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+  <div class="hero-nav-actions">
+    <a href="/wishlist" class="hero-nav-icon">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    </a>
+    <a href="/checkout" class="hero-nav-icon" style="position:relative;">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6"/></svg>
+      {% if cart_count %}<span class="hero-nav-cart-badge">{{ cart_count }}</span>{% endif %}
+    </a>
+    {% if current_user %}
+      <a href="/orders" class="hero-nav-btn">Account</a>
+    {% else %}
+      <a href="/login" class="hero-nav-btn">Sign in</a>
+    {% endif %}
+  </div>
+</nav>
+
+<!-- HERO with WebGL Petals -->
+<section id="hero">
+  <canvas id="petals-canvas"></canvas>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">New Season · Digital Petals Collection</p>
+    <h1 class="hero-title">
+      Fashion that<br><em>blooms</em> with you
+    </h1>
+    <p class="hero-subtitle">
+      Discover independent designers. Shop curated fashion from creators who care about every stitch, every story, every petal.
+    </p>
+    <div class="hero-actions">
+      <a href="/shop" class="btn-hero-primary">Explore the Collection</a>
+      <a href="/stores" class="btn-hero-outline">Browse Stores</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <p class="section-label">Handpicked for you</p>
+    <h2 class="section-title">Featured Pieces</h2>
+    <p class="section-sub">Curated styles from our community of independent designers and vendors.</p>
+    <div class="products-grid">
+      {% for p in featured %}
+      <a href="/product/{{ p.id }}" style="text-decoration:none;">
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="{{ product_img(p.get('image')) }}" alt="{{ p.name }}" loading="lazy"/>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-name">{{ p.name }}</div>
+            <div class="product-card-price">Rs {{ "%.2f"|format(p.price|float) }}</div>
+            <div class="product-card-vendor">by STYLE STORE</div>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="/shop" class="btn-hero-primary" style="background:#111;color:#fff;display:inline-flex;">View All Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+{% if categories %}
+<section class="section" style="background:#f8f8f8;">
+  <div class="container">
+    <p class="section-label">Browse by category</p>
+    <h2 class="section-title">Shop by Style</h2>
+    <div class="categories-grid">
+      {% for cat in categories %}
+      <a href="/shop?category={{ cat|lower }}" class="category-chip">
+        {{ cat_icon(cat)|safe }}
+        {{ cat }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- AI STYLIST CTA -->
+<section class="section bg-dark">
+  <div class="container" style="text-align:center;">
+    <p class="section-label" style="color:#7b9ff5;">AI-powered</p>
+    <h2 class="section-title">Meet Your AI Stylist</h2>
+    <p class="section-sub" style="margin:0 auto 2.5rem;color:#999;">Tell us what you're looking for. Our AI finds the perfect pieces from hundreds of products instantly.</p>
+    <a href="/chat" class="btn-hero-primary" style="font-size:1rem;padding:1rem 2.5rem;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Start Styling
+    </a>
+  </div>
+</section>
+
+<!-- WebGL Petals Shader — exact port of DigitalPetalsShader React component -->
+<script>
+(function () {
+  'use strict';
+
+  const canvas = document.getElementById('petals-canvas');
+  const heroEl = document.getElementById('hero');
+  const gl     = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+
+  if (!gl) {
+    canvas.style.display = 'none';
+    heroEl.style.background = 'radial-gradient(ellipse at center, #2a0a3e 0%, #0d0015 100%)';
+    return;
+  }
+
+  const vsSource = `
+    attribute vec2 a_pos;
+    void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
+  `;
+
+  /* Exact fragment shader from the React component — zero changes */
+  const fsSource = `
+    precision highp float;
+    uniform vec2  iResolution;
+    uniform float iTime;
+    uniform vec2  iMouse;
+
+    float random(vec2 st) {
+      return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+    }
+
+    void main() {
+      vec2 uv    = (gl_FragCoord.xy - 0.5 * iResolution.xy) / iResolution.y;
+      vec2 mouse = (iMouse          - 0.5 * iResolution.xy) / iResolution.y;
+
+      float t = iTime * 0.3;
+
+      /* Upward-floating petals: shift UV space upward over time */
+      vec2 uv_rise = vec2(uv.x, uv.y - t * 0.12);
+      float r = length(uv_rise);
+      float a = atan(uv_rise.y, uv_rise.x);
+
+      float mouseDist = length(uv - mouse);
+      float bloom     = smoothstep(0.4, 0.0, mouseDist);
+
+      float petals     = 5.0 + sin(t) * 2.0;
+      float petalShape = sin(a * petals + r * 2.0);
+      petalShape = pow(abs(petalShape), 0.5);
+
+      float flow    = sin(r * 10.0 - t * 2.0);
+      float pattern = mix(petalShape, flow, 0.5) + bloom * 0.5;
+
+      vec3 color1         = vec3(0.8, 0.1, 0.5);
+      vec3 color2         = vec3(0.2, 0.4, 0.9);
+      vec3 highlightColor = vec3(1.0);
+
+      vec3 finalColor = mix(
+        color1,
+        color2,
+        smoothstep(0.5, 0.8, r + random(vec2(t, t)) * 0.1)
+      ) * pattern;
+
+      finalColor += highlightColor * pow(pattern, 10.0) * (1.0 + bloom);
+
+      gl_FragColor = vec4(finalColor, 1.0);
+    }
+  `;
+
+  function compileShader(src, type) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      console.error('Shader error:', gl.getShaderInfoLog(s));
+      return null;
+    }
+    return s;
+  }
+
+  const vs = compileShader(vsSource, gl.VERTEX_SHADER);
+  const fs = compileShader(fsSource, gl.FRAGMENT_SHADER);
+  if (!vs || !fs) {
+    canvas.style.display = 'none';
+    heroEl.style.background = 'radial-gradient(ellipse at center, #2a0a3e 0%, #0d0015 100%)';
+    return;
+  }
+
+  const program = gl.createProgram();
+  gl.attachShader(program, vs);
+  gl.attachShader(program, fs);
+  gl.linkProgram(program);
+  gl.useProgram(program);
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const posLoc = gl.getAttribLocation(program, 'a_pos');
+  gl.enableVertexAttribArray(posLoc);
+  gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+  const uRes   = gl.getUniformLocation(program, 'iResolution');
+  const uTime  = gl.getUniformLocation(program, 'iTime');
+  const uMouse = gl.getUniformLocation(program, 'iMouse');
+
+  /* Mouse — default center, flip Y (origin bottom-left) */
+  let mx = window.innerWidth / 2;
+  let my = window.innerHeight / 2;
+
+  window.addEventListener('mousemove', function(e) {
+    mx = e.clientX;
+    my = heroEl.clientHeight - e.clientY;
+  }, { passive: true });
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w   = heroEl.clientWidth  * dpr;
+    const h   = heroEl.clientHeight * dpr;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w; canvas.height = h;
+      gl.viewport(0, 0, w, h);
+    }
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  const startTime = performance.now();
+  function render() {
+    resize();
+    const t = (performance.now() - startTime) / 1000;
+    gl.uniform2f(uRes,   canvas.width, canvas.height);
+    gl.uniform1f(uTime,  t);
+    gl.uniform2f(uMouse,
+      mx * (canvas.width  / heroEl.clientWidth),
+      my * (canvas.height / heroEl.clientHeight)
+    );
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render();
+})();
+</script>
+
+<!-- Nav scroll effect -->
+<script>
+  const nav = document.getElementById('heroNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+</script>
+
+</body>
+</html>

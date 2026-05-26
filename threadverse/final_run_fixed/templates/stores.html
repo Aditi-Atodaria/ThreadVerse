@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block extra_head %}
+<style>
+  @media (max-width: 768px) {
+    .stores-cards-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.75rem !important; }
+  }
+  @media (max-width: 480px) {
+    .stores-cards-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+{% endblock %}
+{% block title %}Stores — ThreadVerse{% endblock %}
+{% block content %}
+<div style="max-width:1100px;margin:2.5rem auto;padding:0 1.5rem;">
+  <p style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:#224292;margin-bottom:0.4rem;">Discover</p>
+  <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2.8rem;font-weight:300;color:#111;margin-bottom:0.75rem;">Independent Stores</h1>
+  <p style="color:#888;margin-bottom:2.5rem;">Shop directly from independent designers and creators.</p>
+  {% if vendors %}
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;">
+    {% for v in vendors %}
+    <a href="/store/{{ v.id }}" style="text-decoration:none;">
+      <div style="background:#fff;border-radius:10px;overflow:hidden;border:1px solid #ebebeb;transition:transform 0.2s,box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.09)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+        <div style="height:100px;background:linear-gradient(135deg,#0d1b3e,#224292);"></div>
+        <div style="padding:1.25rem;text-align:center;transform:translateY(-28px);">
+          <div style="width:56px;height:56px;border-radius:50%;background:#224292;display:flex;align-items:center;justify-content:center;margin:0 auto;color:white;font-family:'DM Serif Display','Playfair Display',serif;font-size:1.5rem;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.12);">{{ (v.shop_name or v.name)[0] }}</div>
+          <div style="margin-top:0.6rem;font-weight:600;font-size:0.9rem;color:#111;">{{ v.shop_name or v.name }}</div>
+          <div style="font-size:0.75rem;color:#aaa;margin-top:0.5rem;">{{ v.product_count }} products</div>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="text-align:center;padding:4rem;color:#888;">
+    <div style="font-size:3rem;margin-bottom:1rem;">🏪</div>
+    <h2 style="font-weight:300;">No stores yet</h2>
+    <p style="margin:0.5rem 0 1.5rem;">Be the first to open a store!</p>
+    <a href="/register" style="display:inline-block;padding:0.75rem 1.8rem;background:#111;color:#fff;border-radius:6px;text-decoration:none;font-size:0.875rem;">Open a Store</a>
+  </div>
+  {% endif %}
+</div>
+{% if from_login %}
+<div id="postLoginOverlay" style="position:fixed;inset:0;background:rgba(13,27,62,0.92);z-index:12000;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.45s ease;">
+  <div style="text-align:center;color:#fff;">
+    <div style="font-size:1.85rem;font-family:'DM Serif Display','Playfair Display',serif;margin-bottom:0.6rem;">Welcome back</div>
+    <div style="font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;opacity:0.82;">Taking you to Home</div>
+  </div>
+</div>
+<script>
+  (function () {
+    const overlay = document.getElementById('postLoginOverlay');
+    if (!overlay) return;
+    setTimeout(() => { overlay.style.opacity = '1'; }, 250);
+    setTimeout(() => { window.location.href = '/?welcome=1'; }, 1300);
+  })();
+</script>
+{% endif %}
+{% endblock %}

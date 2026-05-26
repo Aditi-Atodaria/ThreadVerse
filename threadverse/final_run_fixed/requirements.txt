@@ -1,0 +1,8 @@
+flask
+flask-wtf
+groq
+qrcode[pil]
+Pillow
+authlib
+requests
+werkzeug

@@ -1,0 +1,31 @@
+{% extends "vendor/base.html" %}
+{% block title %}Add Product — ThreadVerse Vendor{% endblock %}
+{% block vendor_content %}
+<div class="vendor-header"><h1>Add New Product</h1></div>
+{% if error %}
+<div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius);padding:12px 16px;color:var(--danger);font-size:0.88rem;margin-bottom:20px">{{ error }}</div>
+{% endif %}
+<form method="POST" style="max-width:640px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:32px">
+  <div class="form-group"><label class="form-label">Product Name *</label><input class="form-control" name="name" required placeholder="e.g. Classic White Oxford Shirt"/></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div class="form-group"><label class="form-label">Price (Rs) *</label><input class="form-control" name="price" type="number" step="0.01" required placeholder="1499"/></div>
+    <div class="form-group"><label class="form-label">Stock *</label><input class="form-control" name="stock" type="number" required placeholder="25"/></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div class="form-group"><label class="form-label">Category</label><input class="form-control" name="category" placeholder="e.g. shirts"/></div>
+    <div class="form-group"><label class="form-label">Subcategory</label><input class="form-control" name="subcategory" placeholder="e.g. formal"/></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div class="form-group"><label class="form-label">Gender</label>
+      <select class="form-control" name="gender"><option value="unisex">Unisex</option><option value="men">Men</option><option value="women">Women</option></select>
+    </div>
+    <div class="form-group"><label class="form-label">Color</label><input class="form-control" name="color" placeholder="e.g. navy"/></div>
+  </div>
+  <div class="form-group"><label class="form-label">Image URL</label><input class="form-control" name="image_url" placeholder="https://images.unsplash.com/..."/></div>
+  <div class="form-group"><label class="form-label">Sizes (comma-separated)</label><input class="form-control" name="sizes" value="S,M,L,XL"/></div>
+  <div class="form-group"><label class="form-label">Tags (comma-separated)</label><input class="form-control" name="tags" placeholder="casual, summer, office"/></div>
+  <div class="form-group"><label class="form-label">Description</label><textarea class="form-control" name="description" rows="3" placeholder="Describe your product..." style="resize:vertical"></textarea></div>
+  <div class="form-group"><label class="form-label">Emoji</label><input class="form-control" name="emoji" value="👕" maxlength="4"/></div>
+  <button type="submit" class="btn btn-accent btn-full btn-lg">Add Product</button>
+</form>
+{% endblock %}

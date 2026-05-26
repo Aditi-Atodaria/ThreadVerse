@@ -1,0 +1,3045 @@
+[
+  {
+    "id": 1,
+    "name": "Classic White Oxford Shirt",
+    "category": "shirts",
+    "subcategory": "formal",
+    "gender": "men",
+    "color": "white",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1499,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "formal",
+      "classic"
+    ],
+    "rating": 4.5,
+    "reviews": 210,
+    "stock": 20,
+    "image": "https://plus.unsplash.com/premium_photo-1678218594563-9fe0d16c6838?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2hpdGUlMjBzaGlydHxlbnwwfHwwfHx8MA%3D%3D",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 2,
+    "name": "Sky Blue Formal Shirt",
+    "category": "shirts",
+    "subcategory": "formal",
+    "gender": "men",
+    "color": "sky blue",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1599,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "formal",
+      "smart"
+    ],
+    "rating": 4.4,
+    "reviews": 185,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnuBOc7rLIkYMtsuosETArYVT2AG1tq2MmGA&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 3,
+    "name": "Black Party Shirt",
+    "category": "shirts",
+    "subcategory": "party",
+    "gender": "men",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1799,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "night out",
+      "slim fit"
+    ],
+    "rating": 4.6,
+    "reviews": 160,
+    "stock": 20,
+    "image": "https://rukminim2.flixcart.com/image/480/640/xif0q/shirt/1/v/i/xl-party-wear-satin-shirt-for-men-solstice-original-imah4xbfczxhgzrz.jpeg?q=90",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 4,
+    "name": "Navy Striped Shirt",
+    "category": "shirts",
+    "subcategory": "formal",
+    "gender": "men",
+    "color": "navy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1399,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "stripes",
+      "smart"
+    ],
+    "rating": 4.3,
+    "reviews": 142,
+    "stock": 20,
+    "image": "https://www.iconicindia.com/cdn/shop/files/GMS24-3240031409_2_6399a530-2ca1-47d8-97ff-fdab743065ee.jpg?v=1754665010&width=1445",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 5,
+    "name": "Burgundy Satin Party Shirt",
+    "category": "shirts",
+    "subcategory": "party",
+    "gender": "men",
+    "color": "burgundy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1999,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "satin",
+      "festive"
+    ],
+    "rating": 4.7,
+    "reviews": 130,
+    "stock": 20,
+    "image": "https://5.imimg.com/data5/ECOM/Default/2024/5/418709575/TG/BP/KI/56386717/1705639278-635305630-500x500.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 6,
+    "name": "Olive Casual Linen Shirt",
+    "category": "shirts",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "olive",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1299,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "linen",
+      "summer"
+    ],
+    "rating": 4.2,
+    "reviews": 118,
+    "stock": 20,
+    "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSz1I1XxFFQpuxeMaJH44tZQMiT-R_k8A-k-Fiym3g_IjCYtlcTy6yrBweRx6AFwzBzXDCOtolfLppE-AzaepCl2Kvh257EzicrbZ2qHQz0FfoD_h6rHRcI6bMoEYNk-ZM2Lc58YMJqBDgQs4vxAQ&usqp=CAc",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 7,
+    "name": "White Casual Oversized Shirt",
+    "category": "shirts",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "white",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1199,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "oversized",
+      "everyday"
+    ],
+    "rating": 4.1,
+    "reviews": 95,
+    "stock": 20,
+    "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3wfXCCwUj2vXt2qNG56T93VWHmAhs8O1tUmhTwL0dYT48YIi-h3NYhUyyZfzpyrW5Id11_Am3f_z5MfEzr0TfuYclj0ZPAbM9GZOYKAO6Zsd8kG7o9YxQ-1-0b8rpQp-XXKk_w7b_OZph&usqp=CAc",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 8,
+    "name": "Grey Checked Casual Shirt",
+    "category": "shirts",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "grey",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1349,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "checked",
+      "relaxed"
+    ],
+    "rating": 4.3,
+    "reviews": 108,
+    "stock": 20,
+    "image": "https://www.menincrown.in/cdn/shop/files/666_37792448-4750-446f-87d2-bc0fa9508acd.jpg?v=1724749468",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 9,
+    "name": "Royal Blue Slim Fit Shirt",
+    "category": "shirts",
+    "subcategory": "formal",
+    "gender": "men",
+    "color": "royal blue",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1699,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "slim fit",
+      "formal"
+    ],
+    "rating": 4.5,
+    "reviews": 175,
+    "stock": 20,
+    "image": "https://frayline.com/cdn/shop/files/variant-image-_-05-5_jpeg.jpg?v=1704174210",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 10,
+    "name": "Peach Floral Casual Shirt",
+    "category": "shirts",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "peach",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1249,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "floral",
+      "summer"
+    ],
+    "rating": 4.0,
+    "reviews": 88,
+    "stock": 20,
+    "image": "https://m.media-amazon.com/images/I/81huvPN+dKL._AC_UY1100_.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 11,
+    "name": "Red Bodycon Party Dress",
+    "category": "dresses",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "red",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2499,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "bodycon",
+      "night out"
+    ],
+    "rating": 4.7,
+    "reviews": 230,
+    "stock": 20,
+    "image": "https://i.pinimg.com/474x/35/ca/a0/35caa0a40b121044732297baf9337218.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 12,
+    "name": "Black Sequin Party Dress",
+    "category": "dresses",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3199,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "sequin",
+      "festive"
+    ],
+    "rating": 4.8,
+    "reviews": 215,
+    "stock": 20,
+    "image": "https://i.ebayimg.com/images/g/g00AAOSwrSVip4z0/s-l400.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 13,
+    "name": "Cobalt Blue Wrap Party Dress",
+    "category": "dresses",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "cobalt blue",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2299,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "wrap",
+      "elegant"
+    ],
+    "rating": 4.6,
+    "reviews": 198,
+    "stock": 20,
+    "image": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/T1iJRzIPZ-product.jpeg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 14,
+    "name": "Pink Floral Maxi Dress",
+    "category": "dresses",
+    "subcategory": "floral",
+    "gender": "women",
+    "color": "pink",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1999,
+    "occasion": "casual",
+    "tags": [
+      "floral",
+      "casual",
+      "summer",
+      "maxi"
+    ],
+    "rating": 4.5,
+    "reviews": 172,
+    "stock": 20,
+    "image": "https://i.ebayimg.com/images/g/pwQAAOSwfcNdwmVo/s-l500.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 15,
+    "name": "Yellow Floral Sundress",
+    "category": "dresses",
+    "subcategory": "floral",
+    "gender": "women",
+    "color": "yellow",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1799,
+    "occasion": "casual",
+    "tags": [
+      "floral",
+      "summer",
+      "casual",
+      "breezy"
+    ],
+    "rating": 4.4,
+    "reviews": 155,
+    "stock": 20,
+    "image": "https://www.berrylush.com/cdn/shop/files/1_254bfd42-3efd-43fc-bd9a-6dd01658fbe8.jpg?v=1764413914&width=1920",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 16,
+    "name": "Green Floral Wrap Dress",
+    "category": "dresses",
+    "subcategory": "floral",
+    "gender": "women",
+    "color": "green",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2099,
+    "occasion": "casual",
+    "tags": [
+      "floral",
+      "wrap",
+      "casual",
+      "boho"
+    ],
+    "rating": 4.5,
+    "reviews": 163,
+    "stock": 20,
+    "image": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/B70179s.jpg?im=Resize,width=750",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 17,
+    "name": "White Casual Shirt Dress",
+    "category": "dresses",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "white",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1699,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "shirt dress",
+      "everyday"
+    ],
+    "rating": 4.2,
+    "reviews": 112,
+    "stock": 20,
+    "image": "https://www.urbansuburban.in/image/catalog/2024/cool-summer-24/dresses/S24-DRS-35-WX/4.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 18,
+    "name": "Lavender Casual Midi Dress",
+    "category": "dresses",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "lavender",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1899,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "midi",
+      "relaxed"
+    ],
+    "rating": 4.3,
+    "reviews": 134,
+    "stock": 20,
+    "image": "https://globusfashion.com/media/catalog/product/cache/eff2e10f32e2f4a03e7bc00b9ed76e7e/w/c/wcgbecomkdrs5205-lavender-6.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 19,
+    "name": "Dusty Rose Casual Slip Dress",
+    "category": "dresses",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "dusty rose",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1599,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "slip",
+      "minimal"
+    ],
+    "rating": 4.1,
+    "reviews": 98,
+    "stock": 20,
+    "image": "https://i.pinimg.com/474x/43/45/78/43457836129588d61ec338624e3f65e1.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 20,
+    "name": "Navy Floral Tea Dress",
+    "category": "dresses",
+    "subcategory": "floral",
+    "gender": "women",
+    "color": "navy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2199,
+    "occasion": "casual",
+    "tags": [
+      "floral",
+      "tea dress",
+      "classic"
+    ],
+    "rating": 4.6,
+    "reviews": 187,
+    "stock": 20,
+    "image": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y15136s.jpg?im=Resize,width=750",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 21,
+    "name": "Charcoal Slim Fit Trousers",
+    "category": "pants",
+    "subcategory": "formal",
+    "gender": "men",
+    "color": "charcoal",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 1999,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "formal",
+      "slim fit"
+    ],
+    "rating": 4.5,
+    "reviews": 188,
+    "stock": 20,
+    "image": "https://pantproject.com/cdn/shop/files/1_84ee1258-fe3f-4010-b6b5-20db33b5f07b.jpg?v=1746820435&width=1080",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 22,
+    "name": "Navy Formal Chinos",
+    "category": "pants",
+    "subcategory": "formal",
+    "gender": "men",
+    "color": "navy",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 1799,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "chinos",
+      "smart"
+    ],
+    "rating": 4.4,
+    "reviews": 165,
+    "stock": 20,
+    "image": "https://www.nicobar.com/cdn/shop/files/NBI038397_1_1200x.jpg?v=1738834111",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 23,
+    "name": "Beige Chinos",
+    "category": "pants",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "beige",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 1699,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "chinos",
+      "versatile"
+    ],
+    "rating": 4.3,
+    "reviews": 142,
+    "stock": 20,
+    "image": "https://levi.in/cdn/shop/files/001K90004_04_Side.jpg?v=1740983143&width=1445",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 24,
+    "name": "Black Slim Fit Jeans",
+    "category": "jeans",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "black",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 2099,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "slim fit",
+      "denim"
+    ],
+    "rating": 4.6,
+    "reviews": 210,
+    "stock": 20,
+    "image": "https://5.imimg.com/data5/LS/IO/EM/SELLER-86680741/mens-denim-black-faded-jeans-500x500.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 25,
+    "name": "Dark Indigo Straight Jeans",
+    "category": "jeans",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "dark indigo",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 1999,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "straight fit",
+      "denim"
+    ],
+    "rating": 4.5,
+    "reviews": 196,
+    "stock": 20,
+    "image": "https://offduty.in/cdn/shop/files/Manfinity_RivetRise_Jeans_dcontracts__jambe_effile_et_dlavs_pour_hommes__Mode_en_ligne__SHEIN_FRANCE_main_0.jpg?v=1755148348",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 26,
+    "name": "Grey Jogger Trousers",
+    "category": "pants",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "grey",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 1499,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "jogger",
+      "relaxed"
+    ],
+    "rating": 4.2,
+    "reviews": 108,
+    "stock": 20,
+    "image": "https://muselot.in/cdn/shop/products/Unisex-plain-joggers-in-Melange-Grey-color-Muselot_2048x.jpg?v=1637447776",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 27,
+    "name": "Black Party Trousers",
+    "category": "pants",
+    "subcategory": "party",
+    "gender": "men",
+    "color": "black",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 2299,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "night out",
+      "tapered"
+    ],
+    "rating": 4.7,
+    "reviews": 145,
+    "stock": 20,
+    "image": "https://bananaclub.co.in/cdn/shop/files/BlackLooseFitTrouser_3.jpg?v=1738820069",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 28,
+    "name": "Olive Cargo Trousers",
+    "category": "pants",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "olive",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 1899,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "cargo",
+      "utility"
+    ],
+    "rating": 4.3,
+    "reviews": 122,
+    "stock": 20,
+    "image": "https://pantproject.com/cdn/shop/products/multi-pocket-pants.jpg?v=1667389898&width=720",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 29,
+    "name": "Khaki Smart Casual Chinos",
+    "category": "pants",
+    "subcategory": "casual",
+    "gender": "men",
+    "color": "khaki",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 1749,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "smart",
+      "chinos"
+    ],
+    "rating": 4.4,
+    "reviews": 138,
+    "stock": 20,
+    "image": "https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/2025/NOVEMBER/24/xVb2l6wo_e061861290a943d3a6dfe71329f40591.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 30,
+    "name": "White Linen Trousers",
+    "category": "pants",
+    "subcategory": "party",
+    "gender": "men",
+    "color": "white",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "price": 1999,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "linen",
+      "summer formal"
+    ],
+    "rating": 4.5,
+    "reviews": 118,
+    "stock": 20,
+    "image": "https://uathayam.in/cdn/shop/files/88A7564.jpg?v=1757307258",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 31,
+    "name": "Black Formal Straight Trousers",
+    "category": "pants",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1999,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "formal",
+      "straight leg"
+    ],
+    "rating": 4.6,
+    "reviews": 195,
+    "stock": 20,
+    "image": "https://imagescdn.allensolly.com/img/app/product/4/40084223-22087157.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 32,
+    "name": "Navy Wide Leg Trousers",
+    "category": "pants",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "navy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2199,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "wide leg",
+      "elegant"
+    ],
+    "rating": 4.5,
+    "reviews": 178,
+    "stock": 20,
+    "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQJykwsBws4N9j3jCXWlKhKqnFi_-bSLIj68jfsWK-vgDyhjjZqJcDIi6EZH0Iz1t1VZnR8i6FqZ05pL9rG5GfY1iy3EU3Xw8kC5LHItMXr6EHuJ0aSsAwBw0VDc5BfBcVVaqQQBkU&usqp=CAc",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 33,
+    "name": "Cream High Waist Trousers",
+    "category": "pants",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "cream",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1899,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "high waist",
+      "smart"
+    ],
+    "rating": 4.4,
+    "reviews": 162,
+    "stock": 20,
+    "image": "https://cdn.platform.next/common/items/default/default/itemimages/3_4Ratio/product/lge/B67619s3.jpg?im=Resize,width=180",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 34,
+    "name": "Camel Tailored Trousers",
+    "category": "pants",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "camel",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2099,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "tailored",
+      "classic"
+    ],
+    "rating": 4.5,
+    "reviews": 155,
+    "stock": 20,
+    "image": "https://media3.newlookassets.com/i/newlook/865092517/womens/clothing/trousers/tall-camel-tailored-wide-leg-trousers.jpg?strip=true&qlt=50&w=720",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 35,
+    "name": "Dark Indigo Skinny Jeans",
+    "category": "jeans",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "dark indigo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1799,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "skinny",
+      "denim"
+    ],
+    "rating": 4.4,
+    "reviews": 185,
+    "stock": 20,
+    "image": "https://cdn.platform.next/common/items/default/default/itemimages/3_4Ratio/product/lge/K51061s.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 36,
+    "name": "White Straight Leg Jeans",
+    "category": "jeans",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "white",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1699,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "straight",
+      "denim"
+    ],
+    "rating": 4.3,
+    "reviews": 140,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO3DuEOKBd3YV8vzvfERa9nayKw0fydohPMA&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 37,
+    "name": "Burgundy Party Wide Leg Pants",
+    "category": "pants",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "burgundy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2299,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "wide leg",
+      "festive"
+    ],
+    "rating": 4.7,
+    "reviews": 132,
+    "stock": 20,
+    "image": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/AD8120s.jpg?im=Resize,width=750",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 38,
+    "name": "Sage Green Casual Trousers",
+    "category": "pants",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "sage green",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1599,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "relaxed",
+      "everyday"
+    ],
+    "rating": 4.2,
+    "reviews": 112,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ1vmWwmjqV2BG7li8pc6yEiGD48QxUhFkGw&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 39,
+    "name": "Black Leather Look Trousers",
+    "category": "pants",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2599,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "leather",
+      "night out"
+    ],
+    "rating": 4.8,
+    "reviews": 148,
+    "stock": 20,
+    "image": "https://media2.newlookassets.com/i/newlook/905878001/womens/clothing/trousers/black-faux-leather-wide-leg-tailored-trousers.jpg?strip=true&qlt=50&w=720",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 40,
+    "name": "Olive Linen Trousers",
+    "category": "pants",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "olive",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1749,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "linen",
+      "summer"
+    ],
+    "rating": 4.3,
+    "reviews": 108,
+    "stock": 20,
+    "image": "https://saadaa.in/cdn/shop/files/6_3285a5d8-977a-45b9-9bf6-38627db5e702.jpg?v=1754109961&width=1350",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 41,
+    "name": "White Basic Crew Neck Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "white",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 699,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "basic",
+      "everyday"
+    ],
+    "rating": 4.3,
+    "reviews": 320,
+    "stock": 20,
+    "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQpuNG-JIOVzOv72XUg-UrxtIQqsCRSIslDnaGuv4ZxryN4bpju_vHbsC2cSR2qBRc7Z1gl9al33V4DJC1shmPReNYt3dvCCHNxfEqWorb5ROo1CeiZBJRhKZ-oLATENsP-H_2CLXM&usqp=CAc",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 42,
+    "name": "Black Graphic Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 799,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "graphic",
+      "streetwear"
+    ],
+    "rating": 4.4,
+    "reviews": 285,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9G-8lw2utOHIuWpwFfwHbvRmGTmgnX1R8sQ&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 43,
+    "name": "Navy Essential Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "navy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 749,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "essential",
+      "minimal"
+    ],
+    "rating": 4.2,
+    "reviews": 260,
+    "stock": 20,
+    "image": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/122159s4.jpg?im=Resize,width=750",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 44,
+    "name": "Grey Melange Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "grey",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 699,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "melange",
+      "relaxed"
+    ],
+    "rating": 4.3,
+    "reviews": 240,
+    "stock": 20,
+    "image": "https://cdn11.bigcommerce.com/s-ey89nahkwo/images/stencil/original/products/1259/5280/UNISEX_REGULAR-FIT_LOGO_TEE_GREY_MELANGE_F1__47423.1747292152.jpg?c=1",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 45,
+    "name": "Olive Washed Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "olive",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 849,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "washed",
+      "vintage"
+    ],
+    "rating": 4.5,
+    "reviews": 195,
+    "stock": 20,
+    "image": "https://stalworth.in/cdn/shop/files/7.png?v=1746476414",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 46,
+    "name": "Red Oversized Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "red",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 799,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "oversized",
+      "bold"
+    ],
+    "rating": 4.4,
+    "reviews": 178,
+    "stock": 20,
+    "image": "https://crazymonk.in/cdn/shop/files/Red_1_60b5bf1b-6464-4cca-bb73-b0bd69700dd9.jpg?v=1751104940&width=1946",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 47,
+    "name": "Yellow Tie-Dye Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "yellow",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 899,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "tie-dye",
+      "fun"
+    ],
+    "rating": 4.1,
+    "reviews": 145,
+    "stock": 20,
+    "image": "https://nohanger.com/cdn/shop/files/tiedyeyellowback.jpg?v=1750751681&width=3840",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 48,
+    "name": "Lavender Pastel Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "lavender",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 749,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "pastel",
+      "soft"
+    ],
+    "rating": 4.2,
+    "reviews": 162,
+    "stock": 20,
+    "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1687521373_1980496.jpg?w=300&dpr=1",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 49,
+    "name": "Brown Vintage Print Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "brown",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 849,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "vintage",
+      "print"
+    ],
+    "rating": 4.3,
+    "reviews": 138,
+    "stock": 20,
+    "image": "https://wtflex.in/cdn/shop/files/FallenFateAcidWashTeeWebsite1.jpg?v=1767865121&width=1445",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 50,
+    "name": "Burgundy Longline Tee",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "burgundy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 949,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "longline",
+      "minimal"
+    ],
+    "rating": 4.5,
+    "reviews": 172,
+    "stock": 20,
+    "image": "https://m.media-amazon.com/images/I/71ASbFGGerL._AC_UY1100_.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 51,
+    "name": "Black Puffer Jacket",
+    "category": "jackets",
+    "subcategory": "puffer",
+    "gender": "men",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3999,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "puffer",
+      "warm"
+    ],
+    "rating": 4.7,
+    "reviews": 220,
+    "stock": 20,
+    "image": "https://www.jackjones.in/cdn/shop/files/901029701_g1.jpg?v=1745345782&width=1080",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 52,
+    "name": "Navy Wool Overcoat",
+    "category": "jackets",
+    "subcategory": "coat",
+    "gender": "men",
+    "color": "navy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 5499,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "wool",
+      "formal"
+    ],
+    "rating": 4.8,
+    "reviews": 195,
+    "stock": 20,
+    "image": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/B51763s.jpg?im=Resize,width=750",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 53,
+    "name": "Olive Parka Jacket",
+    "category": "jackets",
+    "subcategory": "parka",
+    "gender": "men",
+    "color": "olive",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 4499,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "parka",
+      "outdoor"
+    ],
+    "rating": 4.6,
+    "reviews": 178,
+    "stock": 20,
+    "image": "https://assets.ajio.com/medias/sys_master/root/20230213/HO0v/63ea5b56f997dde6f4a25245/-473Wx593H-410354065-7jm-MODEL.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 54,
+    "name": "Camel Overcoat",
+    "category": "jackets",
+    "subcategory": "coat",
+    "gender": "men",
+    "color": "camel",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 5999,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "overcoat",
+      "classic"
+    ],
+    "rating": 4.7,
+    "reviews": 165,
+    "stock": 20,
+    "image": "https://static.zara.net/assets/public/ed0e/1604/f3684f659d9d/e3879b33168a/04080125704-p/04080125704-p.jpg?ts=1768920126354&w=352",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 55,
+    "name": "Charcoal Bomber Jacket",
+    "category": "jackets",
+    "subcategory": "bomber",
+    "gender": "men",
+    "color": "charcoal",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3499,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "bomber",
+      "streetwear"
+    ],
+    "rating": 4.5,
+    "reviews": 155,
+    "stock": 20,
+    "image": "https://assets.ajio.com/medias/sys_master/root1/20250923/B3iX/68d26b048bfb9009ac27c9be/-473Wx593H-442663063-charcoal-MODEL.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 56,
+    "name": "Brown Shearling Jacket",
+    "category": "jackets",
+    "subcategory": "shearling",
+    "gender": "men",
+    "color": "brown",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 6499,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "shearling",
+      "luxury"
+    ],
+    "rating": 4.8,
+    "reviews": 142,
+    "stock": 20,
+    "image": "https://assets.myntassets.com/h_1440,q_75,w_1080/v1/assets/images/25654588/2023/11/2/1d208e7c-24ed-44d3-8542-086357ccd27d1698909469873JeggingsMANGOWomenJacketsMANGOWomenTopsMANGOWomenSkirtsMANGO1.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 57,
+    "name": "Forest Green Quilted Jacket",
+    "category": "jackets",
+    "subcategory": "quilted",
+    "gender": "men",
+    "color": "forest green",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3299,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "quilted",
+      "casual"
+    ],
+    "rating": 4.4,
+    "reviews": 132,
+    "stock": 20,
+    "image": "https://www.redrae.co.uk/images/barbour-long-powell-quilted-jacket-forest-mqu1437gn91.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 58,
+    "name": "Burgundy Varsity Jacket",
+    "category": "jackets",
+    "subcategory": "varsity",
+    "gender": "men",
+    "color": "burgundy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3799,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "varsity",
+      "retro"
+    ],
+    "rating": 4.6,
+    "reviews": 128,
+    "stock": 20,
+    "image": "https://uspoloassn.in/cdn/shop/files/1_0a4b9cd4-c761-428b-8e55-883e5032df0a.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 59,
+    "name": "Grey Peacoat",
+    "category": "jackets",
+    "subcategory": "peacoat",
+    "gender": "men",
+    "color": "grey",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 4999,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "peacoat",
+      "smart"
+    ],
+    "rating": 4.7,
+    "reviews": 148,
+    "stock": 20,
+    "image": "https://image.hm.com/assets/hm/dc/6f/dc6f936aa4f8b2b830c94aed5a4b4f11a9783c0b.jpg?imwidth=2160",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 60,
+    "name": "Tan Trench Coat",
+    "category": "jackets",
+    "subcategory": "trench",
+    "gender": "men",
+    "color": "tan",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 5299,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "trench",
+      "classic"
+    ],
+    "rating": 4.6,
+    "reviews": 138,
+    "stock": 20,
+    "image": "https://dqp736wsu6w3m.cloudfront.net/s3bucket/w1000/looks/2501/beige-trench-coat-dark-shirt-denim.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 61,
+    "name": "Camel Wool Coat",
+    "category": "jackets",
+    "subcategory": "coat",
+    "gender": "women",
+    "color": "camel",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 5999,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "wool",
+      "elegant"
+    ],
+    "rating": 4.8,
+    "reviews": 182,
+    "stock": 20,
+    "image": "https://i.pinimg.com/736x/de/7f/9e/de7f9eec2e2ad7d5337c05acf70ea91a.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 62,
+    "name": "Black Puffer Jacket",
+    "category": "jackets",
+    "subcategory": "puffer",
+    "gender": "women",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3799,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "puffer",
+      "warm"
+    ],
+    "rating": 4.6,
+    "reviews": 165,
+    "stock": 20,
+    "image": "https://assets.ajio.com/medias/sys_master/root/20231013/y3eE/65284835afa4cf41f53f8497/-473Wx593H-466702098-black-MODEL.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 63,
+    "name": "Dusty Pink Quilted Jacket",
+    "category": "jackets",
+    "subcategory": "quilted",
+    "gender": "women",
+    "color": "dusty rose",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3299,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "quilted",
+      "feminine"
+    ],
+    "rating": 4.5,
+    "reviews": 145,
+    "stock": 20,
+    "image": "https://media2.newlookassets.com/i/newlook/941070572/womens/clothing/coats-jackets/pale-pink-soft-touch-quilted-jacket.jpg?strip=true&qlt=50&w=720",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 64,
+    "name": "Forest Green Parka",
+    "category": "jackets",
+    "subcategory": "parka",
+    "gender": "women",
+    "color": "forest green",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 4299,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "parka",
+      "outdoor"
+    ],
+    "rating": 4.6,
+    "reviews": 138,
+    "stock": 20,
+    "image": "https://www.newforestclothing.co.uk/cdn/shop/files/preview_images/videoframe_21689.png?v=1727097394",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 65,
+    "name": "Cream Teddy Coat",
+    "category": "jackets",
+    "subcategory": "teddy",
+    "gender": "women",
+    "color": "cream",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 4799,
+    "occasion": "winter",
+    "tags": [
+      "winter",
+      "teddy",
+      "cozy"
+    ],
+    "rating": 4.7,
+    "reviews": 155,
+    "stock": 20,
+    "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT-4p8QJijiSzLgmV_GItNIAi07LG1BETOKCUAm_uDMsbJy0jrL4T-z30xhr6Y_siSjWp5nGJWwwpD0dJ_qpxkrnDeeumEzq8YeWf0vyBAJUDLJu70PwNGedw&usqp=CAc",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 66,
+    "name": "Black Pencil Skirt",
+    "category": "skirts",
+    "subcategory": "office",
+    "gender": "women",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1499,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "pencil",
+      "formal"
+    ],
+    "rating": 4.5,
+    "reviews": 168,
+    "stock": 20,
+    "image": "https://www.berrylush.com/cdn/shop/files/1_82af1d6c-abe2-462f-beed-ba4ae5434e9a.jpg?v=1752842032",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 67,
+    "name": "Navy Midi Office Skirt",
+    "category": "skirts",
+    "subcategory": "office",
+    "gender": "women",
+    "color": "navy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1699,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "midi",
+      "smart"
+    ],
+    "rating": 4.4,
+    "reviews": 145,
+    "stock": 20,
+    "image": "https://www.lulus.com/images/product/xlarge/12481681_643987.jpg?w=375&hdpi=1",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 68,
+    "name": "Burgundy Satin Party Skirt",
+    "category": "skirts",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "burgundy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2099,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "satin",
+      "night out"
+    ],
+    "rating": 4.7,
+    "reviews": 132,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE86Pzn2zj3WWNMEAM3VscjMU6Syc9_IrupA&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 69,
+    "name": "Floral Print Midi Skirt",
+    "category": "skirts",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "multicolor",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1599,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "floral",
+      "boho"
+    ],
+    "rating": 4.4,
+    "reviews": 122,
+    "stock": 20,
+    "image": "https://assets.myntassets.com/f_auto,q_auto:eco,dpr_1.3,w_158,c_limit,fl_progressive/v1/assets/images/2025/AUGUST/26/B6Bw1ngF_bae2c49cbc86479bb4ac552e43fc8bb4.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 70,
+    "name": "Beige Linen A-Line Skirt",
+    "category": "skirts",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "beige",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1399,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "linen",
+      "summer"
+    ],
+    "rating": 4.3,
+    "reviews": 115,
+    "stock": 20,
+    "image": "https://i.etsystatic.com/5609612/r/il/8b0534/6918969010/il_fullxfull.6918969010_l7em.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 71,
+    "name": "White Classic Office Shirt",
+    "category": "shirts",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "white",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1499,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "formal",
+      "classic"
+    ],
+    "rating": 4.5,
+    "reviews": 195,
+    "stock": 20,
+    "image": "https://assets.myntassets.com/h_1440,q_75,w_1080/v1/assets/images/19577030/2022/8/20/71b290d7-9b8b-404a-8579-a5057e6b0bc31661007459044StyleQuotientWomenWhiteClassicCasualShirt1.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 72,
+    "name": "Powder Blue Formal Shirt",
+    "category": "shirts",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "powder blue",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1599,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "smart",
+      "feminine"
+    ],
+    "rating": 4.4,
+    "reviews": 175,
+    "stock": 20,
+    "image": "https://www.hancockfashion.com/cdn/shop/files/16083SBlueS_1_1024x1024.jpg?v=1734412813",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 73,
+    "name": "Blush Pink Silk Shirt",
+    "category": "shirts",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "blush",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2299,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "silk",
+      "elegant"
+    ],
+    "rating": 4.7,
+    "reviews": 158,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuuSPZQNucawlY90Vb9vt2iX2SYp8trd_tsA&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 74,
+    "name": "Black Satin Party Shirt",
+    "category": "shirts",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1999,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "satin",
+      "night out"
+    ],
+    "rating": 4.6,
+    "reviews": 142,
+    "stock": 20,
+    "image": "https://babecouture.in/cdn/shop/files/BLACK_SATIN_SHIRT_2.jpg?v=1713959833&width={width}",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 75,
+    "name": "Cream Linen Casual Shirt",
+    "category": "shirts",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "cream",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1399,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "linen",
+      "relaxed"
+    ],
+    "rating": 4.3,
+    "reviews": 128,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ll17Ig0FVZ3sMUQxJJdD3pbIbb6sjRAsWQ&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 76,
+    "name": "Olive Oversized Casual Shirt",
+    "category": "shirts",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "olive",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1299,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "oversized",
+      "everyday"
+    ],
+    "rating": 4.2,
+    "reviews": 115,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9YZI6JFKOuWUjj_NXnPZ6xuVzjdmRcHp75Q&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 77,
+    "name": "Navy Striped Shirt",
+    "category": "shirts",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "navy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1499,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "stripes",
+      "smart"
+    ],
+    "rating": 4.4,
+    "reviews": 138,
+    "stock": 20,
+    "image": "https://imagescdn.allensolly.com/img/app/product/7/758823-8663735.jpg?auto=format&w=390",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 78,
+    "name": "Lavender Casual Shirt",
+    "category": "shirts",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "lavender",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1199,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "pastel",
+      "soft"
+    ],
+    "rating": 4.2,
+    "reviews": 105,
+    "stock": 20,
+    "image": "https://assets.myntassets.com/w_360,q_50,,dpr_2,fl_progressive,f_webp/assets/images/14615002/2021/8/3/4df70017-a3d6-4ac9-9534-d98d5e10cd0d1627984679526-Roadster-Women-Pink-Casual-Shirt-8381627984678748-1.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 79,
+    "name": "Red Tie-Front Shirt",
+    "category": "shirts",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "red",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1599,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "tie front",
+      "fun"
+    ],
+    "rating": 4.3,
+    "reviews": 122,
+    "stock": 20,
+    "image": "https://m.media-amazon.com/images/I/71vnlZoP8SL._AC_UY1100_.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 80,
+    "name": "Sage Green Office Shirt",
+    "category": "shirts",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "sage green",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1699,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "formal",
+      "smart"
+    ],
+    "rating": 4.5,
+    "reviews": 148,
+    "stock": 20,
+    "image": "https://stylequotient.co.in/cdn/shop/files/SS24SQARTHASAT_SG-6.jpg?v=1727155701",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 81,
+    "name": "Black Formal Blazer",
+    "category": "blazers",
+    "subcategory": "formal",
+    "gender": "unisex",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3999,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "formal",
+      "power"
+    ],
+    "rating": 4.7,
+    "reviews": 215,
+    "stock": 20,
+    "image": "https://img.freepik.com/premium-psd/black-blazer-mockup-psd_53876-599809.jpg?semt=ais_incoming&w=740&q=80",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 82,
+    "name": "Navy Single Breasted Blazer",
+    "category": "blazers",
+    "subcategory": "formal",
+    "gender": "unisex",
+    "color": "navy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3799,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "classic",
+      "smart"
+    ],
+    "rating": 4.6,
+    "reviews": 192,
+    "stock": 20,
+    "image": "https://img01.ztat.net/article/spp-media-p1/c5f9c0bee92e44e8b92ec15e71733182/f5c987e7bebf4b17aff66afc234e6bad.jpg?imwidth=762&filter=packshot",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 83,
+    "name": "Charcoal Slim Fit Blazer",
+    "category": "blazers",
+    "subcategory": "formal",
+    "gender": "unisex",
+    "color": "charcoal",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 4199,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "slim fit",
+      "formal"
+    ],
+    "rating": 4.5,
+    "reviews": 178,
+    "stock": 20,
+    "image": "https://d1fufvy4xao6k9.cloudfront.net/feed/img/man_jacket/989791/without_model_small.png",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 84,
+    "name": "Camel Oversized Blazer",
+    "category": "blazers",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "camel",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3499,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "oversized",
+      "trendy"
+    ],
+    "rating": 4.6,
+    "reviews": 165,
+    "stock": 20,
+    "image": "https://www.everlane.com/cdn/shop/files/889133c6_9283.jpg?v=1753411590&width=1000",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 85,
+    "name": "White Linen Blazer",
+    "category": "blazers",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "white",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 2999,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "linen",
+      "summer"
+    ],
+    "rating": 4.4,
+    "reviews": 148,
+    "stock": 20,
+    "image": "https://image.hm.com/assets/hm/d5/e0/d5e0b5c9a139b5c0019d8262d023423c388da54d.jpg?imwidth=1260",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 86,
+    "name": "Burgundy Party Blazer",
+    "category": "blazers",
+    "subcategory": "party",
+    "gender": "unisex",
+    "color": "burgundy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3799,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "festive",
+      "bold"
+    ],
+    "rating": 4.7,
+    "reviews": 138,
+    "stock": 20,
+    "image": "https://thefrankieshop.com/cdn/shop/files/JUN-PADDED-BLAZER-BURGUNDY-8585_be5af3ca-9f47-478c-bef4-384963e5ab48.jpg?v=1756472366&width=1200",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 87,
+    "name": "Sage Green Casual Blazer",
+    "category": "blazers",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "sage green",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3299,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "relaxed",
+      "smart"
+    ],
+    "rating": 4.5,
+    "reviews": 132,
+    "stock": 20,
+    "image": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/E93122s6.jpg?im=Resize,width=750",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 88,
+    "name": "Dusty Pink Blazer",
+    "category": "blazers",
+    "subcategory": "party",
+    "gender": "unisex",
+    "color": "dusty rose",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3599,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "soft",
+      "elegant"
+    ],
+    "rating": 4.6,
+    "reviews": 125,
+    "stock": 20,
+    "image": "https://images.express.com/is/image/expressfashion/0039_04354217_0736_a001?cache=on&wid=480&fmt=jpeg&qlt=85,1&resmode=sharp2&op_usm=1,1,5,0&defaultImage=Photo-Coming-Soon",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 89,
+    "name": "Olive Double Breasted Blazer",
+    "category": "blazers",
+    "subcategory": "casual",
+    "gender": "unisex",
+    "color": "olive",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 3999,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "double breasted",
+      "bold"
+    ],
+    "rating": 4.5,
+    "reviews": 118,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWg6SkynjRvDK8pDhUN4kL7EwV70mAjQeQ9g&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 90,
+    "name": "Grey Pinstripe Blazer",
+    "category": "blazers",
+    "subcategory": "formal",
+    "gender": "unisex",
+    "color": "grey",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 4299,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "pinstripe",
+      "classic"
+    ],
+    "rating": 4.7,
+    "reviews": 142,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS12kdYuIN6fHl85uKtf0UOLrj0W5-Lk5IPew&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 91,
+    "name": "White Sleeveless Office Top",
+    "category": "tops",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "white",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 999,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "sleeveless",
+      "smart"
+    ],
+    "rating": 4.4,
+    "reviews": 175,
+    "stock": 20,
+    "image": "https://imagescdn.vanheusenindia.com/img/app/product/3/39827511-16462832.jpg?auto=format&w=390",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 92,
+    "name": "Black Turtleneck Top",
+    "category": "tops",
+    "subcategory": "formal",
+    "gender": "women",
+    "color": "black",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1199,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "turtleneck",
+      "minimal"
+    ],
+    "rating": 4.5,
+    "reviews": 162,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmua_67rdtQGSUFicNZnncg0ezp469gnY1cA&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 93,
+    "name": "Cobalt Blue Peplum Top",
+    "category": "tops",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "cobalt blue",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1499,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "peplum",
+      "elegant"
+    ],
+    "rating": 4.6,
+    "reviews": 148,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQaIMwLkpbc-ADzysoK8AsU7ik0vDU1P9Jg&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 94,
+    "name": "Gold Sequin Party Top",
+    "category": "tops",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "gold",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1799,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "sequin",
+      "festive"
+    ],
+    "rating": 4.8,
+    "reviews": 138,
+    "stock": 20,
+    "image": "https://static.zara.net/assets/public/7e09/24e1/f5f842eda0d3/1b2dc3d5c9a0/00881066303-p/00881066303-p.jpg?ts=1774014478377&w=352",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 95,
+    "name": "Blush Pink Ruffle Top",
+    "category": "tops",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "blush",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1399,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "ruffle",
+      "feminine"
+    ],
+    "rating": 4.5,
+    "reviews": 128,
+    "stock": 20,
+    "image": "https://media.landmarkshops.in/cdn-cgi/image/h=730,w=540,q=85,fit=cover/lifestyle/1000015098241-Pink-LightPink-1000015098241_02-2100.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 96,
+    "name": "Cream Casual Knit Top",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "cream",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1099,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "knit",
+      "cozy"
+    ],
+    "rating": 4.3,
+    "reviews": 118,
+    "stock": 20,
+    "image": "https://media2.newlookassets.com/i/newlook/933953414/womens/clothing/knitwear/cream-ribbed-knit-raglan-sleeve-cardigan.jpg?strip=true&qlt=50&w=720",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 97,
+    "name": "Sage Green Cami Top",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "sage green",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 899,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "cami",
+      "summer"
+    ],
+    "rating": 4.2,
+    "reviews": 108,
+    "stock": 20,
+    "image": "https://i.pinimg.com/564x/c7/2a/7d/c72a7d34bbb0807af9d9c0469c3f7a55.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 98,
+    "name": "Lavender Lace Trim Top",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "lavender",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1299,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "lace",
+      "feminine"
+    ],
+    "rating": 4.4,
+    "reviews": 115,
+    "stock": 20,
+    "image": "https://cdn-images.farfetch-contents.com/25/24/67/46/25246746_56777369_600.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 99,
+    "name": "Terracotta Crop Top",
+    "category": "tops",
+    "subcategory": "casual",
+    "gender": "women",
+    "color": "terracotta",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 999,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "crop",
+      "trendy"
+    ],
+    "rating": 4.3,
+    "reviews": 122,
+    "stock": 20,
+    "image": "https://assets.myntassets.com/h_1440,q_75,w_1080/v1/assets/images/28191328/2024/4/22/5012ae17-dd00-48a2-9dd9-c708c0b16f841713782027392-DressBerry-Terracotta-Ring--Wrap-Top-4141713782026793-1.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 100,
+    "name": "Navy Bardot Top",
+    "category": "tops",
+    "subcategory": "party",
+    "gender": "women",
+    "color": "navy",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "price": 1499,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "bardot",
+      "off shoulder"
+    ],
+    "rating": 4.6,
+    "reviews": 135,
+    "stock": 20,
+    "image": "https://basicouture.com/cdn/shop/files/OffShoulderNavy.jpg?v=1767720111&width=2000",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 101,
+    "name": "Black Leather Tote Bag",
+    "category": "bags",
+    "subcategory": "tote",
+    "gender": "women",
+    "color": "black",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 2999,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "leather",
+      "tote"
+    ],
+    "rating": 4.7,
+    "reviews": 195,
+    "stock": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh3RqZMdMcxatW1GgI3CqE6FVltzkdx4bbgQ&s",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 102,
+    "name": "Tan Crossbody Bag",
+    "category": "bags",
+    "subcategory": "crossbody",
+    "gender": "women",
+    "color": "tan",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 1999,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "crossbody",
+      "everyday"
+    ],
+    "rating": 4.5,
+    "reviews": 172,
+    "stock": 20,
+    "image": "https://images.unsplash.com/photo-1760624294699-3d3156314391?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhbiUyMGJhZ3xlbnwwfHwwfHx8MA%3D%3D",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 103,
+    "name": "Burgundy Evening Clutch",
+    "category": "bags",
+    "subcategory": "clutch",
+    "gender": "women",
+    "color": "burgundy",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 1499,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "clutch",
+      "evening"
+    ],
+    "rating": 4.6,
+    "reviews": 155,
+    "stock": 20,
+    "image": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/AJ7694s.jpg?im=Resize,width=750",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 104,
+    "name": "Cream Mini Shoulder Bag",
+    "category": "bags",
+    "subcategory": "shoulder",
+    "gender": "women",
+    "color": "cream",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 2499,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "mini",
+      "chic"
+    ],
+    "rating": 4.4,
+    "reviews": 138,
+    "stock": 20,
+    "image": "https://www.fizzygoblet.com/cdn/shop/files/CreamCrossbodydomesticwhitebg-3_11zon.jpg?v=1688542437&width=600",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 105,
+    "name": "Cobalt Blue Structured Bag",
+    "category": "bags",
+    "subcategory": "structured",
+    "gender": "women",
+    "color": "cobalt blue",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 2799,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "structured",
+      "bold"
+    ],
+    "rating": 4.5,
+    "reviews": 128,
+    "stock": 20,
+    "image": "https://saumyasstores.com/cdn/shop/files/51hSXO0kKRL.jpg?v=1766744667&width=1445",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 106,
+    "name": "Gold Statement Necklace",
+    "category": "accessories",
+    "subcategory": "jewellery",
+    "gender": "women",
+    "color": "gold",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 999,
+    "occasion": "party",
+    "tags": [
+      "party",
+      "statement",
+      "jewellery"
+    ],
+    "rating": 4.6,
+    "reviews": 165,
+    "stock": 20,
+    "image": "https://i5.walmartimages.com/seo/Exaggerated-Statement-Metal-Sphere-Pendant-Necklace-for-Women-Unique-Multi-layer-Vintage-Necklace-Fashion-Trendy-Retro-Gold-Beaded-Chain-Necklace_da5ad04c-b883-4349-b362-64657e6401d7.997c3305900c55ffa737e206fde0a114.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 107,
+    "name": "Pearl Stud Earrings",
+    "category": "accessories",
+    "subcategory": "jewellery",
+    "gender": "women",
+    "color": "white",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 599,
+    "occasion": "office",
+    "tags": [
+      "office",
+      "classic",
+      "pearl"
+    ],
+    "rating": 4.7,
+    "reviews": 188,
+    "stock": 20,
+    "image": "https://www.mannash.in/cdn/shop/products/MCYES370D809_1.jpg?v=1657800563",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 108,
+    "name": "Silk Hair Scarf",
+    "category": "accessories",
+    "subcategory": "scarves",
+    "gender": "women",
+    "color": "multicolor",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 799,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "hair",
+      "scarf"
+    ],
+    "rating": 4.4,
+    "reviews": 142,
+    "stock": 20,
+    "image": "https://m.media-amazon.com/images/I/61C3E38HlBL._AC_UY1100_.jpg",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 109,
+    "name": "Tortoiseshell Sunglasses",
+    "category": "accessories",
+    "subcategory": "eyewear",
+    "gender": "women",
+    "color": "brown",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 1299,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "summer",
+      "sunglasses"
+    ],
+    "rating": 4.5,
+    "reviews": 155,
+    "stock": 20,
+    "image": "https://www.buyhautesauce.com/cdn/shop/files/AW24_HSSG2557_1_d6ab4f7a-de9b-4eeb-86a1-cf44330b62c1.jpg?v=1716279790",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  },
+  {
+    "id": 110,
+    "name": "Beige Canvas Tote Bag",
+    "category": "bags",
+    "subcategory": "tote",
+    "gender": "women",
+    "color": "beige",
+    "sizes": [
+      "One Size"
+    ],
+    "price": 1499,
+    "occasion": "casual",
+    "tags": [
+      "casual",
+      "canvas",
+      "everyday"
+    ],
+    "rating": 4.3,
+    "reviews": 132,
+    "stock": 20,
+    "image": "https://kotart.in/cdn/shop/products/Kotart-Kotart-Graphic-Printed-Cotton-Tote-Bag-for-Women-Reusable-Cute-Printed-Shopping-Grocery-Bag-Multipurpose-Canvas-Shopping-Tote-Bag-with-Long-Handle-15-x-16-inch-Natural-Beige.jpg?v=1697550048",
+    "vendor_id": "v001",
+    "vendor_name": "ThreadVerse"
+  }
+]

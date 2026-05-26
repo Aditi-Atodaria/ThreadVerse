@@ -1,0 +1,19 @@
+[
+  {
+    "id": "u001",
+    "name": "Demo Customer",
+    "email": "customer@demo.com",
+    "password": "demo123",
+    "role": "customer",
+    "created": "01 Jan 2026"
+  },
+  {
+    "id": "v001",
+    "name": "Style House",
+    "email": "vendor@demo.com",
+    "password": "demo123",
+    "role": "vendor",
+    "created": "01 Jan 2026",
+    "shop_name": "Style House"
+  }
+]

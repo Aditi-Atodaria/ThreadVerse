@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block extra_head %}
+<style>
+  @media (max-width: 600px) {
+    .wishlist-item { flex-direction: row !important; gap: 0.75rem !important; }
+    .wishlist-item img { width: 60px !important; height: 60px !important; }
+  }
+</style>
+{% endblock %}
+{% block title %}Wishlist — ThreadVerse{% endblock %}
+{% block content %}
+<div style="max-width:1100px;margin:2.5rem auto;padding:0 1.5rem;">
+  <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2.4rem;font-weight:300;color:#111;margin-bottom:2rem;">My Wishlist</h1>
+  {% if wishlist %}
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;">
+    {% for p in wishlist %}
+    <div style="background:#fff;border-radius:8px;overflow:hidden;border:1px solid #ebebeb;">
+      <a href="/product/{{ p.product_id|default(p.id, true) }}" style="text-decoration:none;">
+        <div style="aspect-ratio:3/4;background:#f5f5f5;overflow:hidden;">
+          <img src="{{ product_img(p.get('image')) }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
+        </div>
+        <div style="padding:0.9rem;">
+          <div style="font-size:0.875rem;font-weight:500;color:#111;">{{ p.name }}</div>
+          <div style="color:#224292;font-size:0.875rem;">Rs {{ "%.2f"|format(p.price|float) }}</div>
+          <div style="font-size:0.72rem;color:#aaa;margin-top:0.12rem;">by STYLE STORE</div>
+        </div>
+      </a>
+      <div style="padding:0 0.9rem 0.9rem;display:flex;gap:0.5rem;">
+        <button onclick="addWishlistToCart({{ p.product_id|default(p.id, true) }})" style="flex:1;padding:0.5rem;background:#111;color:#fff;border:none;border-radius:5px;cursor:pointer;font-size:0.8rem;">Add to Cart</button>
+        <button onclick="removeFromWishlist({{ p.product_id|default(p.id, true) }}, this)" style="padding:0.5rem 0.7rem;border:1px solid #ddd;background:#fff;border-radius:5px;cursor:pointer;color:#888;font-size:0.8rem;">✕</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="min-height:50vh;display:flex;align-items:center;justify-content:center;">
+    <div style="text-align:center;padding:4rem 2rem;">
+      <div style="font-size:4rem;margin-bottom:1.2rem;">💜</div>
+      <h2 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:1.8rem;font-weight:300;color:#333;margin-bottom:0.5rem;">Your wishlist is empty</h2>
+      <p style="color:#888;margin:0.5rem auto 2rem;max-width:360px;line-height:1.6;">Save items you love and find them here whenever you're ready.</p>
+      <a href="/shop" style="display:inline-block;padding:0.75rem 1.8rem;background:#111;color:#fff;border-radius:6px;text-decoration:none;font-size:0.875rem;">Browse Shop</a>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+async function addWishlistToCart(pid) {
+  const res = await fetch('/api/cart/add', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({id: pid})
+  });
+  const data = await res.json();
+  if (data.success) { alert('Added to cart!'); }
+}
+async function removeFromWishlist(pid, btn) {
+  const res = await fetch('/api/wishlist/remove', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({id: pid})
+  });
+  const data = await res.json();
+  if (data.success) {
+    const card = btn.closest('div[style*="border-radius:8px"]');
+    if (card) card.remove();
+  }
+}
+</script>
+{% endblock %}

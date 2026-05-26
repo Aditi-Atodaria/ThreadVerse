@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block title %}My Cart — ThreadVerse{% endblock %}
+{% block extra_head %}
+<style>
+.cart-layout { max-width:1100px;margin:0 auto;padding:40px 20px;display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start; }
+.cart-items-list { display:flex;flex-direction:column;gap:16px; }
+.cart-item { background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:20px;display:grid;grid-template-columns:80px 1fr auto;gap:20px;align-items:center;transition:all 0.2s; }
+.cart-item:hover { border-color:#224292; }
+.cart-item-img { background:#f5f5f5;border-radius:10px;height:80px;overflow:hidden; }
+.cart-item-img img { width:100%;height:100%;object-fit:cover; }
+.cart-item-info h4 { font-family:'DM Serif Display','Playfair Display',serif;font-size:1.1rem;color:#111;margin-bottom:4px; }
+.cart-item-info h4 a { text-decoration:none;color:#111; }
+.cart-item-meta { font-size:0.82rem;color:#888;margin-bottom:10px; }
+.cart-item-meta span { margin-right:12px; }
+.qty-control { display:flex;align-items:center;border:1px solid #e8e8e8;border-radius:8px;overflow:hidden;width:fit-content; }
+.qty-btn { background:#f5f5f5;border:none;padding:6px 12px;font-size:1rem;cursor:pointer;color:#111;transition:all 0.2s; }
+.qty-btn:hover { background:#e8e8e8; }
+.qty-val { padding:6px 14px;font-size:0.9rem;font-weight:600;border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8;min-width:44px;text-align:center; }
+.cart-item-price-col { text-align:right; }
+.cart-item-price { font-size:1.1rem;font-weight:700;color:#111;margin-bottom:8px; }
+.cart-item-remove { background:none;border:1px solid #e8e8e8;border-radius:6px;padding:5px 12px;font-size:0.78rem;color:#888;cursor:pointer;transition:all 0.2s; }
+.cart-item-remove:hover { border-color:#ef4444;color:#ef4444;background:rgba(239,68,68,0.05); }
+.order-summary { background:#f8f8f8;border:1px solid #e8e8e8;border-radius:12px;padding:28px;position:sticky;top:90px; }
+.order-summary h3 { font-family:'DM Serif Display','Playfair Display',serif;font-size:1.4rem;margin-bottom:24px;color:#111; }
+.summary-row { display:flex;justify-content:space-between;font-size:0.9rem;color:#888;margin-bottom:12px; }
+.summary-row.total { font-size:1.1rem;font-weight:700;color:#111;border-top:1px solid #e8e8e8;padding-top:14px;margin-top:8px; }
+.checkout-form { margin-top:24px;border-top:1px solid #e8e8e8;padding-top:24px; }
+.checkout-form h4 { font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;color:#888;margin-bottom:16px; }
+.checkout-form input { width:100%;padding:0.6rem 0.9rem;border:1.5px solid #ddd;border-radius:6px;font-size:0.85rem;margin-bottom:0.75rem; }
+.checkout-form button { width:100%;padding:0.8rem;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.875rem;font-weight:500;margin-top:0.5rem; }
+@media (max-width:900px) {
+  .cart-layout { grid-template-columns:1fr;padding:24px 20px; }
+  .order-summary { position:static; }
+  .cart-item { grid-template-columns:60px 1fr; }
+  .cart-item-price-col { grid-column:2; }
+}
+</style>
+{% endblock %}
+{% block content %}
+<div style="padding:50px 40px;text-align:center;background:#f8f8f8;">
+  <h1 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:2.4rem;font-weight:300;color:#111;">Your Cart</h1>
+  <p style="color:#888;margin-top:0.5rem;">{{ cart|length }} item(s) ready for checkout</p>
+</div>
+<div class="cart-layout">
+  <div>
+    {% if cart %}
+    <div class="cart-items-list">
+      {% for item in cart %}
+      <div class="cart-item" id="item-{{ item.product_id|default(item.id, true) }}">
+        <div class="cart-item-img">
+          <img src="{{ product_image_url(item.product_id|default(item.id, true), item) }}" alt="{{ item.name }}" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=200&auto=format&fit=crop&q=60'"/>
+        </div>
+        <div class="cart-item-info">
+          <h4><a href="/product/{{ item.product_id|default(item.id, true) }}">{{ item.name }}</a></h4>
+          <div class="cart-item-meta">
+            {% if item.category %}<span>{{ item.category|capitalize }}</span>{% endif %}
+            {% if item.selected_size %}<span>Size: {{ item.selected_size }}</span>{% endif %}
+            {% if item.color %}<span>Color: {{ item.color }}</span>{% endif %}
+          </div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="updateQty({{ item.product_id|default(item.id, true) }}, {{ (item.qty|default(1)) - 1 }})">−</button>
+            <div class="qty-val">{{ item.qty|default(1) }}</div>
+            <button class="qty-btn" onclick="updateQty({{ item.product_id|default(item.id, true) }}, {{ (item.qty|default(1)) + 1 }})">+</button>
+          </div>
+        </div>
+        <div class="cart-item-price-col">
+          <div class="cart-item-price">Rs {{ (item.price * (item.qty|default(1)))|int }}</div>
+          <button class="cart-item-remove" onclick="removeItem({{ item.product_id|default(item.id, true) }})">✕ Remove</button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="margin-top:20px;display:flex;gap:12px">
+      <a href="/shop" style="display:inline-flex;align-items:center;padding:0.6rem 1.2rem;border:1.5px solid #ddd;background:#fff;border-radius:6px;text-decoration:none;color:#555;font-size:0.85rem;">← Continue Shopping</a>
+      <button onclick="clearCart()" style="display:inline-flex;align-items:center;padding:0.6rem 1.2rem;border:1.5px solid #ddd;background:#fff;border-radius:6px;cursor:pointer;color:#888;font-size:0.85rem;">🗑 Clear Cart</button>
+    </div>
+    {% else %}
+    <div style="min-height:calc(100vh - 260px);display:flex;align-items:center;justify-content:center;width:100%;">
+      <div style="text-align:center;padding:4rem 2rem;max-width:560px;margin:0 auto;">
+        <div style="font-size:4rem;margin-bottom:1.2rem;">🛒</div>
+        <h3 style="font-family:'DM Serif Display','Playfair Display',serif;font-size:1.8rem;font-weight:300;color:#333;margin-bottom:0.5rem;">Your cart is empty</h3>
+        <p style="color:#888;margin:0.5rem auto 2rem;max-width:360px;line-height:1.6;">Looks like you haven't added anything yet. Start browsing to find something you love.</p>
+        <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+          <a href="/shop" style="display:inline-block;padding:0.75rem 1.8rem;background:#111;color:#fff;border-radius:6px;text-decoration:none;font-size:0.875rem;">Browse Shop</a>
+          <a href="/chat" style="display:inline-block;padding:0.75rem 1.8rem;border:1.5px solid #111;color:#111;border-radius:6px;text-decoration:none;font-size:0.875rem;">Ask AI for Help</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% if cart %}
+  <div>
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div class="summary-row"><span>Subtotal ({{ cart|length }} items)</span><span>Rs {{ total|int }}</span></div>
+      <div class="summary-row"><span>Shipping</span><span>{% if total >= 999 %}Free 🎉{% else %}Rs 99{% endif %}</span></div>
+      <div class="summary-row"><span>Tax (estimated)</span><span>Rs {{ (total * 0.05)|int }}</span></div>
+      <div class="summary-row total"><span>Total</span><span>Rs {{ (total + (0 if total >= 999 else 99) + total * 0.05)|int }}</span></div>
+      {% if total < 999 %}
+      <div style="margin-top:12px;padding:10px 14px;background:#eef2ff;border-radius:8px;font-size:0.82rem;color:#1a3066">
+        Add Rs {{ (999 - total)|int }} more for free shipping!
+      </div>
+      {% endif %}
+      <div class="checkout-form">
+        <h4>Shipping Details</h4>
+        <input id="shipping-name" placeholder="Full Name"/>
+        <input id="shipping-address" placeholder="Street Address"/>
+        <input id="shipping-city" placeholder="City, State, ZIP"/>
+        <button onclick="checkout()">Place Order →</button>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+async function updateQty(pid, qty) {
+  if (qty <= 0) { removeItem(pid); return; }
+  const res = await fetch('/api/cart/update', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({id: pid, qty: qty})
+  });
+  const data = await res.json();
+  if (data.success) location.reload();
+}
+async function removeItem(pid) {
+  await fetch('/api/cart/remove', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({id: pid})
+  });
+  location.reload();
+}
+async function clearCart() {
+  await fetch('/api/cart/clear', { method: 'POST' });
+  location.reload();
+}
+async function checkout() {
+  const shipping = {
+    name: document.getElementById('shipping-name').value,
+    address: document.getElementById('shipping-address').value,
+    city: document.getElementById('shipping-city').value
+  };
+  if (!shipping.name || !shipping.address || !shipping.city) {
+    alert('Please fill in all shipping details.'); return;
+  }
+  const res = await fetch('/api/cart/checkout', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({shipping: shipping})
+  });
+  const data = await res.json();
+  if (data.success) { window.location.href = '/orders'; }
+  else { alert(data.error || 'Checkout failed.'); }
+}
+</script>
+{% endblock %}
