@@ -16,7 +16,7 @@ _groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY", ""))
 
 app = Flask(__name__)
 # Secure secret key — override via SECRET_KEY env variable in production
-app.secret_key = os.environ.get('SECRET_KEY', 'threadverse-v2-xK9mNpQrLsD8wYzA-2026')
+app.secret_key = os.environ.get('SECRET_KEY', 'change-this-before-deploying')
 csrf = CSRFProtect(app)
 
 
